@@ -862,7 +862,7 @@ body {
 /*==========================
 ========Hisui==========*/
 .hisui {
-    padding-top: 240px;
+    padding-top:40vh;
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -1182,6 +1182,11 @@ body {
 
 /*==========================
 ========responisve==========*/
+@media screen and (max-width:1440px){
+    .hisui{
+        padding-top:260px;
+    }
+}
 @media screen and (max-width:1050px) {}
 
 /*　横幅900px以下の段組み設定　*/
