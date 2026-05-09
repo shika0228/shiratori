@@ -30,12 +30,18 @@ function parseVisualId(visualId) {
   };
 }
 
+/*
+  GitHub Pages 上注意：
+  这里的 backgroundImage 是写进 HTML 元素的 style 里，
+  所以路径要以当前页面 character.html 为基准，
+  不是以 js/character.js 为基准。
+*/
 function getClickImageByVisualId(visualId) {
-  return `url('../img_character/${visualId.replace('visual-item', 'click')}.png')`;
+  return `url('img_character/${visualId.replace('visual-item', 'click')}.png')`;
 }
 
 function getFrameImageByVisualId(visualId) {
-  return `url('../img_character/${visualId.replace('visual-item', 'bg-frame')}.png')`;
+  return `url('img_character/${visualId.replace('visual-item', 'bg-frame')}.png')`;
 }
 
 function buildNavConfigFromVisuals() {
@@ -210,6 +216,7 @@ function updateDesktopScale() {
 }
 
 let resizeFrame = null;
+
 window.addEventListener('resize', () => {
   if (resizeFrame) cancelAnimationFrame(resizeFrame);
   resizeFrame = requestAnimationFrame(() => {
@@ -227,6 +234,7 @@ navItems.forEach((navItem) => {
 });
 
 const initialNavId = getInitialNavId();
+
 if (initialNavId) {
   switchByNav(initialNavId);
 }
