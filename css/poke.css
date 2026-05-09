@@ -1025,6 +1025,7 @@ body {
 
 .hisui-deco-line {
     width: 100%;
+    aspect-ratio:1440 / 65;
     margin: 0;
 }
 
