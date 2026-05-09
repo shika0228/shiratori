@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>白鸟-character-</title>
+  <link rel="icon" href="icon.ico?v=1" type="image/x-icon">
+  <link rel="shortcut icon" href="icon.ico?v=1" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/character.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <a href="index.html" class="back-home">
+      <span class="decor" aria-hidden="true">
+        <i class="dot"></i>
+        <i class="line"></i>
+      </span>
+      <span class="text">返回主页</span>
+    </a>
+
+    <button class="hamburger" id="hamburger" aria-label="menu" type="button">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="menu-wrap" id="menu">
+      <a href="index.html" class="menu-button" id="menu-button-1"></a>
+      <a href="character.html" class="menu-button" id="menu-button-2"></a>
+      <a href="backstory.html" class="menu-button" id="menu-button-3"></a>
+      <a href="gallery.html" class="menu-button" id="menu-button-4"></a>
+    </div>
+  </header>
+
+  <img class="stage__bg-light" src="./img_character/light.svg" alt="">
+
+  <section class="stage">
+    <nav class="stage__nav" aria-label="角色切换">
+      <button class="nav-item is-active" id="nav-item-1" data-index="0" type="button" aria-controls="visual-item-1 info-item-1" aria-pressed="true"></button>
+      <button class="nav-item" id="nav-item-2" data-index="1" type="button" aria-controls="visual-item-2 info-item-2" aria-pressed="false"></button>
+      <button class="nav-item" id="nav-item-3" data-index="2" type="button" aria-controls="visual-item-3 info-item-3" aria-pressed="false"></button>
+    </nav>
+
+    <nav class="stage-nav-for-each" aria-label="服装切换">
+      <img src="img_character/icon-change-cloth.svg" alt="">
+      <div class="stage-nav-for-each-buttons" id="stage-nav-for-each-buttons"></div>
+    </nav>
+
+    <div class="stage__visual">
+      <figure class="visual-item is-active" id="visual-item-1">
+        <img class="visual-item-main" id="visual-item-main-1" src="./img_character/main-1.png" alt="">
+        <img class="visual-item-main-reflect" src="./img_character/main-1.png" alt="">
+      </figure>
+      <figure class="visual-item" id="visual-item-2">
+        <img class="visual-item-main" id="visual-item-main-2" src="./img_character/main-2.png" alt="">
+        <img class="visual-item-main-reflect" src="./img_character/main-2.png" alt="">
+      </figure>
+      <figure class="visual-item" id="visual-item-3">
+        <img class="visual-item-main" id="visual-item-main-3" src="./img_character/main-3.png" alt="">
+        <img class="visual-item-main-reflect" src="./img_character/main-3.png" alt="">
+      </figure>
+      <figure class="visual-item" id="visual-item-1-2">
+        <img class="visual-item-main" id="visual-item-main-1-2" src="./img_character/main-1-2.png" alt="">
+        <img class="visual-item-main-reflect" src="./img_character/main-1-2.png" alt="">
+      </figure>
+      <figure class="visual-item" id="visual-item-1-3">
+        <img class="visual-item-main" id="visual-item-main-1-3" src="./img_character/main-1-3.png" alt="">
+        <img class="visual-item-main-reflect" src="./img_character/main-1-3.png" alt="">
+      </figure>     
+      <figure class="visual-item" id="visual-item-1-4">
+        <img class="visual-item-main" id="visual-item-main-1-4" src="./img_character/main-1-4.png" alt="">
+        <img class="visual-item-main-reflect" src="./img_character/main-1-4.png" alt="">
+      </figure>
+      <figure class="visual-item" id="visual-item-2-2">
+        <img class="visual-item-main" id="visual-item-main-2-2" src="./img_character/main-2-2.png" alt="">
+        <img class="visual-item-main-reflect" src="./img_character/main-2-2.png" alt="">
+      </figure>
+      <figure class="visual-item" id="visual-item-3-2">
+        <img class="visual-item-main" id="visual-item-main-3-2" src="./img_character/main-3-2.png" alt="">
+        <img class="visual-item-main-reflect" src="./img_character/main-3-2.png" alt="">
+      </figure>
+    </div>
+
+    <aside class="stage__info">
+      <article class="info-item is-active" id="info-item-1">
+        <img class="title-img" src="img_character/title-about.png" draggable="false" alt="">
+        <div class="info-title-wrapper">
+          <img src="img_character/icon-small-logo.png" alt="">
+          <h2 class="info-title">命运之轮·魔女</h2>
+        </div>
+        <div class="dash-line"></div>
+        <p class="info-text">
+          万物因果循环，星体循轨生灭<br>
+          <br>
+          这是一个不被记载的坐标，但依旧有着回响。<br>
+          当你向祂提出“永恒的生命对你来说是一种负担吗？”这一问时，祂的神情变得悠远而沉静。<br>
+          祂回答，这种感觉如同独自漂泊在无垠的海上，四周不见边际，海水与天空融为一色。可是，你可以随时潜入海中，看鲸群的身影如云影掠过，水母提着星灯从你身旁漂浮；你也可以不断向下沉潜，探访从未有人抵达的幽暗之境。宇宙广阔无垠，而你恰好拥有无尽的时间——这或许也算一种馈赠。
+          <br><br>
+          你还想再问些什么，祂却轻轻抬手止住了你的话音。<br>
+          “你看，”祂指向繁星深处，“在沉寂了将近万年的坐标上，正有新的星系正在醒来。”
+        </p>
+        <a href="majo.html" class="read-more">
+          <span class="decor" aria-hidden="true">
+            <i class="dot"></i>
+            <i class="line"></i>
+          </span>
+          <span class="text">查看更多</span>
+        </a>
+      </article>
+      <article class="info-item" id="info-item-2">
+        <img class="title-img" src="img_character/title-about.png" draggable="false" alt="">
+        <div class="info-title-wrapper">
+          <img src="img_character/icon-small-logo.png" alt="">
+          <h2 class="info-title">宝剑十·死神</h2>
+        </div>
+        <div class="dash-line"></div>
+        <p class="info-text">
+          痛苦不会一直存在。<br>
+          当她再度睁眼时，四周是深海般的沉暗，不见微光，不见轮廓。<br>
+          她下意识伸手触碰自己的脸颊与身躯，发现一切竟是完好如初时，不由得在心里产生了这样的疑惑：<br>
+          “这是哪里？发生了什么？”<br>
+          黑暗中的蓝色幽影一闪而过。<br>
+          “欢迎你加入我们的行列。”<br>
+          ……<br>
+          据说，逝者的灵魂将由死神引渡。生平点滴会被祂们镌刻在档案之中，而灵魂则随祂们的引领前往彼岸。<br>
+          听——乌鸦开始嘶鸣，跟随着迎来新生的死神一起前往黑夜深处。
+        </p>
+        <a href="majo.html" class="read-more">
+          <span class="decor" aria-hidden="true">
+            <i class="dot"></i>
+            <i class="line"></i>
+          </span>
+          <span class="text">查看更多</span>
+        </a>
+      </article>
+      <article class="info-item" id="info-item-3">
+        <img class="title-img" src="img_character/title-about.png" draggable="false" alt="">
+        <div class="info-title-wrapper">
+          <img src="img_character/icon-small-logo.png" alt="">
+          <h2 class="info-title">星币九·人类形态</h2>
+        </div>
+        <div class="dash-line"></div>
+        <p class="info-text">
+          欢悦吧，这是你应得的闪耀！
+          <br><br>
+          当祂造访这个世界时，通常会选择化身为当前时代最常见的模样，以普通人的身份开启探索这个世界的旅途。<br>
+          即使身形和外貌都完美融入这个时代，思想和行为却仍需重新构筑…<br>
+          看来，又有一场新的冒险要开始了！<br>
+          “希望这一次的探索，仍是一段令你感到欣喜的旅程！”<br>
+          街头巷尾、辽阔星原、聚光灯下…你都拥有万千可能。<br>
+          -Beautiful Journey
+        </p>
+        <a href="majo.html" class="read-more">
+          <span class="decor" aria-hidden="true">
+            <i class="dot"></i>
+            <i class="line"></i>
+          </span>
+          <span class="text">查看更多</span>
+        </a>
+      </article>
+    </aside>
+  </section>
+
+  <script src="js/character.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>白鸟-gallery-</title>
+  <link rel="icon" href="icon.ico?v=1" type="image/x-icon">
+  <link rel="shortcut icon" href="icon.ico?v=1" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kapakana:wght@300..400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="./css/gallery.css">
+</head>
+
+<body>
+  <!------------header---------->
+  <header class="site-header">
+    <!-- 返回主页 -->
+    <a href="index.html" class="back-home">
+      <span class="text">返回主页</span>
+      <span class="decor">
+        <i class="dot"></i>
+        <i class="line"></i>
+      </span>
+    </a>
+    <!-- 汉堡按钮 -->
+    <button class="hamburger" id="hamburger" aria-label="menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <!-- 菜单 -->
+    <div class="menu-wrap" id="menu">
+      <a href="index.html" class="menu-button" id="menu-button-1"></a>
+      <a href="character.html" class="menu-button" id="menu-button-2"></a>
+      <a href="backstory.html" class="menu-button" id="menu-button-3"></a>
+      <a href="gallery.html" class="menu-button" id="menu-button-4"></a>
+    </div>
+  </header>
+
+  <main class="main">
+    <!------------main-title---------->
+    <div class="main-title">
+      <h1>Gallery</h1>
+      <div class="sub-title">
+        <img src="./img_gallery/sub-title-deco.svg">
+        <p>画廊</p>
+        <img src="./img_gallery/sub-title-deco.svg">
+      </div>
+    </div>
+    <!----------gallery wrapper----------->
+    <div class="gallery-wrapper">
+      <ul class="sort-btn">
+        <li class="sort01 active">时之魔女</li>
+        <li class="sort02">宝可梦训练师</li>
+      </ul>
+      <ul class="grid">
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_1.jpg" data-fancybox="group1" data-caption="majo-1"><img src="./img_gallery/majo_1.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_2.jpg" data-fancybox="group1" data-caption="majo-2"><img src="./img_gallery/majo_2.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_3.jpg" data-fancybox="group1" data-caption="majo-3"><img src="./img_gallery/majo_3.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_4.jpg" data-fancybox="group1" data-caption="majo-4"><img src="./img_gallery/majo_4.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_5.jpg" data-fancybox="group1" data-caption="majo-5"><img src="./img_gallery/majo_5.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_6.png" data-fancybox="group1" data-caption="majo-6"><img src="./img_gallery/majo_6.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_7.png" data-fancybox="group1" data-caption="majo-7"><img src="./img_gallery/majo_7.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_8.png" data-fancybox="group1" data-caption="majo-8"><img src="./img_gallery/majo_8.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_9.png" data-fancybox="group1" data-caption="majo-9"><img src="./img_gallery/majo_9.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_10.png" data-fancybox="group1" data-caption="majo-10"><img src="./img_gallery/majo_10.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_11.png" data-fancybox="group1" data-caption="majo-11"><img src="./img_gallery/majo_11.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_12.png" data-fancybox="group1" data-caption="majo-12"><img src="./img_gallery/majo_12.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_13.png" data-fancybox="group1" data-caption="majo-13"><img src="./img_gallery/majo_13.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_14.png" data-fancybox="group1" data-caption="majo-14"><img src="./img_gallery/majo_14.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_15.png" data-fancybox="group1" data-caption="majo-15"><img src="./img_gallery/majo_15.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_16.png" data-fancybox="group1" data-caption="majo-16"><img src="./img_gallery/majo_16.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_17.png" data-fancybox="group1" data-caption="majo-17"><img src="./img_gallery/majo_17.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_18.png" data-fancybox="group1" data-caption="majo-18"><img src="./img_gallery/majo_18.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_19.png" data-fancybox="group1" data-caption="majo-19"><img src="./img_gallery/majo_19.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_20.jpeg" data-fancybox="group1" data-caption="majo-20"><img src="./img_gallery/majo_20.jpeg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_21.png" data-fancybox="group1" data-caption="majo-21"><img src="./img_gallery/majo_21.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_22.png" data-fancybox="group1" data-caption="majo-22"><img src="./img_gallery/majo_22.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_23.png" data-fancybox="group1" data-caption="majo-23"><img src="./img_gallery/majo_23.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_24.jpeg" data-fancybox="group1" data-caption="majo-24"><img src="./img_gallery/majo_24.jpeg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_25.png" data-fancybox="group1" data-caption="majo-25"><img src="./img_gallery/majo_25.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_26.png" data-fancybox="group1" data-caption="majo-26"><img src="./img_gallery/majo_26.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_27.png" data-fancybox="group1" data-caption="majo-27"><img src="./img_gallery/majo_27.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_28.png" data-fancybox="group1" data-caption="majo-28"><img src="./img_gallery/majo_28.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_29.png" data-fancybox="group1" data-caption="majo-29"><img src="./img_gallery/majo_29.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_30.png" data-fancybox="group1" data-caption="majo-30"><img src="./img_gallery/majo_30.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_31.png" data-fancybox="group1" data-caption="majo-31"><img src="./img_gallery/majo_31.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort01">
+          <div class="item-content">
+            <a href="./img_gallery/majo_32.png" data-fancybox="group1" data-caption="majo-32"><img src="./img_gallery/majo_32.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_1.jpg" data-fancybox="group2" data-caption="poke-1"><img src="./img_gallery/poke_1.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_2.png" data-fancybox="group2" data-caption="poke-2"><img src="./img_gallery/poke_2.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_3.jpg" data-fancybox="group2" data-caption="poke-3"><img src="./img_gallery/poke_3.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_4.jpg" data-fancybox="group2" data-caption="poke-4"><img src="./img_gallery/poke_4.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_5.jpg" data-fancybox="group2" data-caption="poke-5"><img src="./img_gallery/poke_5.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_6.jpg" data-fancybox="group2" data-caption="poke-6"><img src="./img_gallery/poke_6.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_8.png" data-fancybox="group2" data-caption="poke-8"><img src="./img_gallery/poke_8.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_9.jpg" data-fancybox="group2" data-caption="poke-9"><img src="./img_gallery/poke_9.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_11.jpg" data-fancybox="group2" data-caption="poke-11"><img src="./img_gallery/poke_11.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_12.jpg" data-fancybox="group2" data-caption="poke-12"><img src="./img_gallery/poke_12.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_13.jpg" data-fancybox="group2" data-caption="poke-13"><img src="./img_gallery/poke_13.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_14.jpg" data-fancybox="group2" data-caption="poke-14"><img src="./img_gallery/poke_14.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_15.png" data-fancybox="group2" data-caption="poke-15"><img src="./img_gallery/poke_15.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_16.jpeg" data-fancybox="group2" data-caption="poke-16"><img src="./img_gallery/poke_16.jpeg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_17.jpg" data-fancybox="group2" data-caption="poke-17"><img src="./img_gallery/poke_17.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_18.png" data-fancybox="group2" data-caption="poke-18"><img src="./img_gallery/poke_18.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_19.jpg" data-fancybox="group2" data-caption="poke-19"><img src="./img_gallery/poke_19.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_20.png" data-fancybox="group2" data-caption="poke-20"><img src="./img_gallery/poke_20.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_21.jpg" data-fancybox="group2" data-caption="poke-21"><img src="./img_gallery/poke_21.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_22.png" data-fancybox="group2" data-caption="poke-22"><img src="./img_gallery/poke_22.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_23.jpeg" data-fancybox="group2" data-caption="poke-23"><img src="./img_gallery/poke_23.jpeg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_24.png" data-fancybox="group2" data-caption="poke-24"><img src="./img_gallery/poke_24.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_25.png" data-fancybox="group2" data-caption="poke-25"><img src="./img_gallery/poke_25.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_26.png" data-fancybox="group2" data-caption="poke-26"><img src="./img_gallery/poke_26.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_27.png" data-fancybox="group2" data-caption="poke-27"><img src="./img_gallery/poke_27.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_28.png" data-fancybox="group2" data-caption="poke-28"><img src="./img_gallery/poke_28.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_29.jpg" data-fancybox="group2" data-caption="poke-29"><img src="./img_gallery/poke_29.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_30.jpg" data-fancybox="group2" data-caption="poke-30"><img src="./img_gallery/poke_30.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_31.jpg" data-fancybox="group2" data-caption="poke-31"><img src="./img_gallery/poke_31.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_32.jpg" data-fancybox="group2" data-caption="poke-32"><img src="./img_gallery/poke_32.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_33.jpg" data-fancybox="group2" data-caption="poke-33"><img src="./img_gallery/poke_33.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_34.jpg" data-fancybox="group2" data-caption="poke-34"><img src="./img_gallery/poke_34.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_35.jpg" data-fancybox="group2" data-caption="poke-35"><img src="./img_gallery/poke_35.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_36.jpg" data-fancybox="group2" data-caption="poke-36"><img src="./img_gallery/poke_36.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_37.jpg" data-fancybox="group2" data-caption="poke-37"><img src="./img_gallery/poke_37.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_38.jpg" data-fancybox="group2" data-caption="poke-38"><img src="./img_gallery/poke_38.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_39.jpg" data-fancybox="group2" data-caption="poke-39"><img src="./img_gallery/poke_39.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_40.jpg" data-fancybox="group2" data-caption="poke-40"><img src="./img_gallery/poke_40.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_41.jpg" data-fancybox="group2" data-caption="poke-41"><img src="./img_gallery/poke_41.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_43.jpg" data-fancybox="group2" data-caption="poke-43"><img src="./img_gallery/poke_43.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_44.jpg" data-fancybox="group2" data-caption="poke-44"><img src="./img_gallery/poke_44.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_45.jpg" data-fancybox="group2" data-caption="poke-45"><img src="./img_gallery/poke_45.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_46.jpg" data-fancybox="group2" data-caption="poke-46"><img src="./img_gallery/poke_46.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_47.jpg" data-fancybox="group2" data-caption="poke-47"><img src="./img_gallery/poke_47.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_48.jpg" data-fancybox="group2" data-caption="poke-48"><img src="./img_gallery/poke_48.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_49.jpg" data-fancybox="group2" data-caption="poke-49"><img src="./img_gallery/poke_49.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_50.jpg" data-fancybox="group2" data-caption="poke-50"><img src="./img_gallery/poke_50.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_51.jpg" data-fancybox="group2" data-caption="poke-51"><img src="./img_gallery/poke_51.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_52.jpg" data-fancybox="group2" data-caption="poke-52"><img src="./img_gallery/poke_52.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_53.jpg" data-fancybox="group2" data-caption="poke-53"><img src="./img_gallery/poke_53.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_54.png" data-fancybox="group2" data-caption="poke-54"><img src="./img_gallery/poke_54.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_55.jpg" data-fancybox="group2" data-caption="poke-55"><img src="./img_gallery/poke_55.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_57.png" data-fancybox="group2" data-caption="poke-57"><img src="./img_gallery/poke_57.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_58.png" data-fancybox="group2" data-caption="poke-58"><img src="./img_gallery/poke_58.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_59.jpg" data-fancybox="group2" data-caption="poke-59"><img src="./img_gallery/poke_59.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_60.png" data-fancybox="group2" data-caption="poke-60"><img src="./img_gallery/poke_60.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_61.png" data-fancybox="group2" data-caption="poke-61"><img src="./img_gallery/poke_61.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_62.jpg" data-fancybox="group2" data-caption="poke-62"><img src="./img_gallery/poke_62.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_63.png" data-fancybox="group2" data-caption="poke-63"><img src="./img_gallery/poke_63.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_64.png" data-fancybox="group2" data-caption="poke-64"><img src="./img_gallery/poke_64.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_65.png" data-fancybox="group2" data-caption="poke-65"><img src="./img_gallery/poke_65.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_66.png" data-fancybox="group2" data-caption="poke-66"><img src="./img_gallery/poke_66.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_67.jpg" data-fancybox="group2" data-caption="poke-67"><img src="./img_gallery/poke_67.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_68.png" data-fancybox="group2" data-caption="poke-68"><img src="./img_gallery/poke_68.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_69.jpg" data-fancybox="group2" data-caption="poke-69"><img src="./img_gallery/poke_69.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_70.jpg" data-fancybox="group2" data-caption="poke-70"><img src="./img_gallery/poke_70.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_71.png" data-fancybox="group2" data-caption="poke-71"><img src="./img_gallery/poke_71.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_72.png" data-fancybox="group2" data-caption="poke-72"><img src="./img_gallery/poke_72.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_73.jpeg" data-fancybox="group2" data-caption="poke-73"><img src="./img_gallery/poke_73.jpeg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_74.jpg" data-fancybox="group2" data-caption="poke-74"><img src="./img_gallery/poke_74.jpg" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_75.png" data-fancybox="group2" data-caption="poke-75"><img src="./img_gallery/poke_75.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_76.png" data-fancybox="group2" data-caption="poke-76"><img src="./img_gallery/poke_76.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_77.png" data-fancybox="group2" data-caption="poke-77"><img src="./img_gallery/poke_77.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_78.png" data-fancybox="group2" data-caption="poke-78"><img src="./img_gallery/poke_78.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_79.png" data-fancybox="group2" data-caption="poke-79"><img src="./img_gallery/poke_79.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_80.png" data-fancybox="group2" data-caption="poke-80"><img src="./img_gallery/poke_80.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_81.png" data-fancybox="group2" data-caption="poke-81"><img src="./img_gallery/poke_81.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_82.png" data-fancybox="group2" data-caption="poke-82"><img src="./img_gallery/poke_82.png" alt=""></a>
+          </div>
+        </li>
+        <li class="item sort02">
+          <div class="item-content">
+            <a href="./img_gallery/poke_83.png" data-fancybox="group2" data-caption="poke-83"><img src="./img_gallery/poke_83.png" alt=""></a>
+          </div>
+        </li>
+      </ul>
+
+
+    </div>
+
+        <!---------- footer--------------->
+        <section class="footer" id="footer">
+          <img class="top-logo" src="img_poketrainer/top-logo.png" alt="白鸟 logo">
+          <a  class="redbook-link-btn"href="https://www.xiaohongshu.com/user/profile/67a57668000000000a03e5e7?shareRedId=ODY5OTw1Ok02NzUyOTgwNjY0OThHOjZC&apptime=1777205097&share_id=45446a59381a41478aac047fc4eb57e6&xsec_source=app_share&xsec_token=YBa5D0_uv5yEfA_MQ0UcwC9cwyVWfalGCerOsbQ_33QX8%3D&xhsshare=CopyLink" target="_blank">
+            <img class="redbook-icon" src="img_majo/redbood-icon.svg">
+            <p class="redbook-id">@小鸟的旅行箱</p>
+          </a>
+          <p class="copyright">
+              ©kitagawa shiratori 2026
+          </p>
+      </section>
+  </main>
+
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/web-animations-js@2.3.2/web-animations.min.js"></script>
+  <script src="https://unpkg.com/muuri@0.8.0/dist/muuri.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+
+</html>

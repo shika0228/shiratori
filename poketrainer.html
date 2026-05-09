@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>白鸟</title>
+    <link rel="icon" href="icon.ico?v=1" type="image/x-icon">
+    <link rel="shortcut icon" href="icon.ico?v=1" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css" />
+    <link rel="stylesheet" href="./css/poke.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <a href="backstory.html" class="back-home">
+            <span class="decor" aria-hidden="true">
+                <i class="dot"></i>
+                <i class="line"></i>
+            </span>
+            <span class="text">返回主页</span>
+        </a>
+
+        <button class="hamburger" id="hamburger" aria-label="menu" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="menu-wrap" id="menu">
+            <a href="index.html" class="menu-button" id="menu-button-1"></a>
+            <a href="character.html" class="menu-button" id="menu-button-2"></a>
+            <a href="backstory.html" class="menu-button" id="menu-button-3"></a>
+            <a href="gallery.html" class="menu-button" id="menu-button-4"></a>
+        </div>
+    </header>
+
+    <main>
+        <section class="top-bar-wrapper">
+            <img class="top-logo" src="img_poketrainer/top-logo.png" alt="白鸟 logo">
+            <nav class="section-nav" aria-label="页面内导航">
+                <a href="#profile" class="section-nav__item">角色介绍</a>
+                <a href="#costume" class="section-nav__item">服设展示</a>
+                <a href="#background" class="section-nav__item">故事背景</a>
+                <a href="#gallery" class="section-nav__item">插画展示</a>
+                <a href="#hisui" class="section-nav__item">洗翠专区</a>
+            </nav>
+        </section>
+        <!---------------Profile--------------->
+        <section class="profile" id="profile">
+            <img class="profile-img" src="img_poketrainer/main-character.png" alt="白鸟角色立绘">
+            <img class="profile-box" src="img_poketrainer/profile-box.png">
+            <div class="pokemon-change">
+                <h1>Pokemon Team</h1>
+                <div class="pokemon-team-wrapper">
+                    <img id="pokemon-team-image" src="img_poketrainer/pokemon_1.svg" alt="宝可梦 1">
+                </div>
+                <div class="pokemon-ball-wrapper">
+                    <button class="ball-btn is-active" id="ball-btn-1" data-pokemon="1" type="button"
+                        aria-label="显示宝可梦 1">
+                        <img src="img_poketrainer/ball_1.svg" alt="宝可梦球 1">
+                    </button>
+                    <button class="ball-btn" id="ball-btn-2" data-pokemon="2" type="button" aria-label="显示宝可梦 2">
+                        <img src="img_poketrainer/ball_2.svg" alt="宝可梦球 2">
+                    </button>
+                    <button class="ball-btn" id="ball-btn-3" data-pokemon="3" type="button" aria-label="显示宝可梦 3">
+                        <img src="img_poketrainer/ball_3.svg" alt="宝可梦球 3">
+                    </button>
+                    <button class="ball-btn" id="ball-btn-4" data-pokemon="4" type="button" aria-label="显示宝可梦 4">
+                        <img src="img_poketrainer/ball_4.svg" alt="宝可梦球 4">
+                    </button>
+                    <button class="ball-btn" id="ball-btn-5" data-pokemon="5" type="button" aria-label="显示宝可梦 5">
+                        <img src="img_poketrainer/ball_1.svg" alt="宝可梦球 5">
+                    </button>
+                    <button class="ball-btn" id="ball-btn-6" data-pokemon="6" type="button" aria-label="显示宝可梦 6">
+                        <img src="img_poketrainer/ball_1.svg" alt="宝可梦球 6">
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!---------------Costume--------------->
+        <section class="costume" id="costume">
+            <img class="costume-title" src="img_poketrainer/costume.svg">
+            <div class="costume-bg" aria-hidden="true">
+                <img class="costume-bg-img" src="img_poketrainer/costume-bg.png" alt="">
+                <img class="costume-bg-img-sp" src="img_poketrainer/costume-bg-sp.png">
+            </div>
+            <div class="costume-inner">
+                <div class="costume-carousel" data-costume-carousel>
+                    <div class="costume-carousel__viewport" aria-label="服设图片轮播">
+                        <button class="costume-carousel__nav costume-carousel__nav--prev" type="button"
+                            aria-label="上一张服设图">
+                            <span aria-hidden="true"></span>
+                        </button>
+
+                        <div class="costume-carousel__stage" id="costume-carousel-stage"></div>
+
+                        <button class="costume-carousel__nav costume-carousel__nav--next" type="button"
+                            aria-label="下一张服设图">
+                            <span aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <p class="costume-carousel__status sr-only" aria-live="polite"></p>
+                </div>
+            </div>
+        </section>
+        <!---------------Background--------------->
+        <section class="background" id="background">
+            <img class="background-title" src="img_poketrainer/background.svg">
+            <div class="background-stories">
+                <div class="story-wrapper">
+                    <img class="story-img" src="img_poketrainer/story-1.png" draggable="false">
+                    <div class="story-text-wrapper">
+                        <img class="story-title" src="img_poketrainer/story-1-title.svg" draggable="false">
+                        <p class="story-text">
+                            在奥多马雷曲折的水道与古老街巷间，莽莽撞撞的少女总是跑得比思绪更<br>
+                            快，仿佛随时会踏入不可预知的危险，注意到这点的拉帝欧斯，就这样在<br>
+                            她的身后一直默默地守护着她。<br>
+                            直到离别将近，看着少女的背影，拉帝欧斯忽然意识到——守护这件事，早<br>
+                            已无法止步于这座城市。
+                            <br><br>
+                            在那之后，白鸟还是喜欢让拉帝欧斯载着她在高空飞行，而拉帝欧斯也总<br>
+                            是有求必应。“说起来，你从什么时候开始观察我的？”<br>
+                            拉帝欧斯闭上眼睛，白鸟的眼前出现了自己刚登岛时的情景。<br>
+                            【从你踏入水之都的那一刻起。】
+                        </p>
+                    </div>
+                </div>
+                <div class="story-wrapper story-reverse">
+                    <img class="story-img img-wide" src="img_poketrainer/story-2.png" draggable="false">
+                    <div class="story-text-wrapper story-text-wrapper-wide">
+                        <img class="story-title" src="img_poketrainer/story-2-title.svg" draggable="false">
+                        <p class="story-text">
+                            “别担心，我会送你回家的。”<br>
+                            在异乡的夕阳下，白发蓝瞳的少女被一位老人认错成孙女雪莉。她没有说破，<br>
+                            而是陪他度过了温暖的一个月。临别前，老人将一枚装有玛纳霏的精灵球交给她。<br>
+                            少女带着玛纳<br>
+                            霏踏上旅程，当她终于找到雪莉，两个人决定一起将渴望回家的玛纳<br>
+                            霏放归。也正是在那时，雪莉才知道爷爷多年来深藏的愧疚与牵挂——他曾经是宝<br>
+                            可梦猎人，雪莉因此与爷爷有了隔阂，离家出走。这珍稀的玛纳霏，是他最后，也<br>
+                            最沉重的“商品”，是他试图弥补亲情的唯一方式。海浪声中，隔阂随着玛纳霏的<br>
+                            远去一同消融。雪莉决定动身，去见她久久未见的爷爷。
+                        </p>
+                    </div>
+                </div>
+                <div class="story-wrapper">
+                    <img class="story-img" src="img_poketrainer/story-3.png" draggable="false">
+                    <div class="story-text-wrapper">
+                        <img class="story-title" src="img_poketrainer/story-3-title.svg" draggable="false">
+                        <p class="story-text">
+                            白鸟和她的伙伴们正在更衣室试穿这次大赛的表演服。<br>
+                            缎带系好，裙摆轻旋，镜中的身影流光溢彩——一切都已经准<br>
+                            备完毕。
+                            “唔...这身装扮是不是对你来说有点太可爱了？不喜欢的话<br>
+                            千万不要勉强自己哦。”面对雪妖女为难的神色，她忍不住<br>
+                            笑起来，温柔地提示着。
+                            <br><br>
+                            准备万全！这次，就让我们一起拿下冠军的奖杯吧！ 
+                        </p>
+                    </div>
+                </div>
+                <div class="continue-wrapper">
+                    <p class="continue-text">
+                        ...<br>
+                        continue
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!---------------Gallery--------------->
+        <section class="gallery" id="gallery">
+            <img class="gallery-title" src="img_poketrainer/gallery-title.svg">
+            <div class="gallery-pic-wrapper">
+                <ul class="gallery-contents">
+                    <li><a href="img_poketrainer/poke-illust-1.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-1.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-2.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-2.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-3.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-3.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-4.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-4.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-5.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-5.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-6.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-6.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-7.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-7.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-8.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-8.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-9.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-9.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-10.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-10.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-11.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-11.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-12.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-12.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-13.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-13.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-14.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-14.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-15.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-15.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-16.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-16.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-17.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-17.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-18.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-18.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-19.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-19.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-20.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-20.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-21.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-21.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-22.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-22.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-23.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-23.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-24.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-24.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-25.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-25.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-26.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-26.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-27.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-27.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-28.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-28.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-29.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-29.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-30.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-30.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-31.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-31.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-32.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-32.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-33.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-33.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-34.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-34.png"></a></li>
+                    <li><a href="img_poketrainer/poke-illust-35.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/poke-illust-35.png"></a></li>
+
+                </ul>
+            </div>
+        </section>
+        <!---------------Hisui--------------->
+        <section class="hisui" id="hisui">
+            <img class="hisui-title" src="img_poketrainer/hisui-title.png">
+            <div class="hisui-profile-wrapper">
+                <div class="hisui-profile-img">
+                    <img class="hisui-introduce-pic" src="img_poketrainer/hisui-introduce-pic.png">
+                </div>
+                <img class="hisui-profile-text" src="img_poketrainer/hisui-profile-text.svg">
+                <img class="hisui-shark" src="img_poketrainer/shark.png">
+
+            </div>
+            <img class="hisui-deco-line" src="./img_poketrainer/hisui-deco-line.png">
+            <div class="hisui-team-wrapper">
+                <div class="hisui-team-member" id="team-member-1">
+                    <span class="hisui-team-label">伦琴猫</span>
+                    <div class="hisui-team-frame">
+                        <img class="hisui-team" src="./img_poketrainer/hisui-team-1.png" alt="伦琴猫">
+                    </div>
+                </div>
+                <div class="hisui-team-member" id="team-member-2">
+                    <span class="hisui-team-label">雪妖女</span>
+                    <div class="hisui-team-frame">
+                        <img class="hisui-team" src="./img_poketrainer/hisui-team-2.png" alt="雪妖女">
+                    </div>
+                </div>
+                <div class="hisui-team-member" id="team-member-3">
+                    <span class="hisui-team-label">美黏龙</span>
+                    <div class="hisui-team-frame">
+                        <img class="hisui-team" src="./img_poketrainer/hisui-team-3.png" alt="美黏龙">
+                    </div>
+                </div>
+                <div class="hisui-team-member" id="team-member-4">
+                    <span class="hisui-team-label">路卡利欧</span>
+                    <div class="hisui-team-frame">
+                        <img class="hisui-team" src="./img_poketrainer/hisui-team-4.png" alt="路卡利欧">
+                    </div>
+                </div>
+                <div class="hisui-team-member" id="team-member-5">
+                    <span class="hisui-team-label">烈咬陆鲨</span>
+                    <div class="hisui-team-frame">
+                        <img class="hisui-team" src="./img_poketrainer/hisui-team-5.png" alt="烈咬陆鲨">
+                    </div>
+                </div>
+                <div class="hisui-team-member" id="team-member-6">
+                    <span class="hisui-team-label">沙奈朵</span>
+                    <div class="hisui-team-frame">
+                        <img class="hisui-team" src="./img_poketrainer/hisui-team-6.png" alt="沙奈朵">
+                    </div>
+                </div>
+            </div>
+            <img class="hisui-deco-line-2" src="./img_poketrainer/hisui-deco-line-2.png">
+            <div class="hisui-gallery-wrapper">
+                <div class="hisui-gallery-title">
+                    <img src="img_poketrainer/hisui-gallery-title.svg">
+                </div>
+                <ul class="gallery-contents" id="gallery-hisui">
+                    <li><a href="img_poketrainer/gallery-hisui-1.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/gallery-hisui-1.png"></a></li>
+                    <li><a href="img_poketrainer/gallery-hisui-2.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/gallery-hisui-2.png"></a></li>
+                    <li><a href="img_poketrainer/gallery-hisui-3.png" data-lightbox="gallery1"><img
+                                src="img_poketrainer/gallery-hisui-3.png"></a></li>
+
+                </ul>
+            </div>
+        </section>
+         <!---------------Footer--------------->
+         <section class="footer" id="footer">
+            <img class="footer-bg"src="./img_poketrainer/footer-background.png" draggable="false">
+            <img class="footer-logo" src="img_poketrainer/logo-white.png" alt="白鸟 logo">
+            <a  class="redbook-link-btn"href="https://www.xiaohongshu.com/user/profile/67a57668000000000a03e5e7?shareRedId=ODY5OTw1Ok02NzUyOTgwNjY0OThHOjZC&apptime=1777205097&share_id=45446a59381a41478aac047fc4eb57e6&xsec_source=app_share&xsec_token=YBa5D0_uv5yEfA_MQ0UcwC9cwyVWfalGCerOsbQ_33QX8%3D&xhsshare=CopyLink" target="_blank">
+              <img class="redbook-icon" src="img_majo/redbood-icon.svg">
+              <p class="redbook-id">@小鸟的旅行箱</p>
+            </a>
+            <p class="copyright">
+                ©kitagawa shiratori 2026
+            </p>
+         </section>       
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js"></script>
+    <script src="./js/poke.js" defer></script>
+</body>
+
+</html>
