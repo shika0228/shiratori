@@ -783,7 +783,7 @@ html.is-large-desktop .visual-item-main-reflect {
   }
 
   .stage__nav {
-    margin:50px 0;
+    margin:24px 0;
     gap: 60px;
   }
 
@@ -868,7 +868,7 @@ html.is-large-desktop .visual-item-main-reflect {
   }
 
   .stage-nav-for-each-buttons {
-    gap: 10px;
+    gap: 24px;
   }
 
   .info-text {
