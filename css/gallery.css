@@ -1,0 +1,452 @@
+* {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+    --page-pad-x: clamp(20px, 4vw, 72px);
+    --page-pad-y: clamp(22px, 4vh, 48px);
+    --hamburger-size: clamp(39px, 2.8vw, 56px);
+    --menu-scale: 1;
+}
+
+body {
+  font-family: "Noto Sans SC";
+  background-color: #292929;
+}
+
+.site-header {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* 返回主页 */
+.back-home {
+  position: absolute;
+  top: max(env(safe-area-inset-top), var(--page-pad-y));
+  left: var(--page-pad-x);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  text-decoration: none;
+  pointer-events: auto;
+  color: #3fe9ff;
+  font-size: 16px;
+  letter-spacing: 0.15em;
+}
+
+/* 文字 */
+.back-home .text {
+  line-height: 1;
+  text-align: right;
+}
+
+/* 下方装饰 */
+.back-home .decor {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* 点：在线的左边 */
+.back-home .dot {
+  width: 8px;
+  height: 8px;
+  background: #3fe9ff;
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+/* 线 */
+.back-home .line {
+  width: 105px;
+  height: 1px;
+  background: #3fe9ff;
+  transform-origin: right center;
+  transition: transform 0.35s ease;
+}
+
+/* hover：向左延伸 */
+.back-home:hover .line {
+  transform: scaleX(1.1);
+}
+
+/* 汉堡按钮 */
+.hamburger {
+  position: absolute;
+  top: max(env(safe-area-inset-top), var(--page-pad-y));
+  right: var(--page-pad-x);
+  width: var(--hamburger-size);
+  height: var(--hamburger-size);
+  background: none;
+  border: none;
+  cursor: pointer;
+  pointer-events: auto;
+  background: #FFF;
+  box-shadow: 2px 3px 0 0 #41D1ED;
+  padding: 0 6px;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #000000;
+  margin: 6px 0;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+/* 变成叉 */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* 菜单本体（默认隐藏） */
+.menu-wrap {
+  --menu-offset-y: 20px;
+  padding: 0;
+  z-index: 3;
+  position: absolute;
+  right: var(--page-pad-x);
+  top: calc(max(env(safe-area-inset-top), var(--page-pad-y)) + var(--hamburger-size) + 20px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(var(--menu-offset-y)) scale(var(--menu-scale));
+  transform-origin: top right;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* 打开菜单 */
+.menu-wrap.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(var(--menu-scale));
+}
+
+.menu-button {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  overflow: visible;
+}
+
+#menu-button-1 {
+  width: 198px;
+  height: 115px;
+  background: url('../img/menu-btn-1-before.svg') center / 100% no-repeat;
+  transition: transform 0.3s ease;
+}
+
+#menu-button-1:hover {
+  background-image: url('../img/menu-btn-after-1.svg');
+  transform: scale(1.05);
+}
+
+#menu-button-2 {
+  width: 385px;
+  height: 116px;
+  background: url('../img/menu-btn-2-before.svg') center / 100% no-repeat;
+  transition: transform 0.3s ease;
+}
+
+#menu-button-2:hover {
+  background-image: url('../img/menu-btn-after-2.svg');
+  transform: scale(1.05);
+}
+
+#menu-button-3 {
+  width: 390px;
+  height: 100px;
+  background: url('../img/menu-btn-3-before.svg') center / 100% no-repeat;
+  transition: transform 0.3s ease;
+}
+
+#menu-button-3:hover {
+  background-image: url('../img/menu-btn-after-3.svg');
+  transform: scale(1.05);
+}
+
+#menu-button-4 {
+  width: 288px;
+  height: 110px;
+  background: url('../img/menu-btn-4-before.svg') center / 100% no-repeat;
+  transition: transform 0.3s ease;
+}
+
+#menu-button-4:hover {
+  background-image: url('../img/menu-btn-after-4.svg');
+  transform: scale(1.05);
+}
+
+
+/* Header menu responsive scale */
+@media screen and (max-width: 1100px) {
+    :root {
+        --page-pad-x: clamp(18px, 4vw, 32px);
+        --page-pad-y: clamp(18px, 3vh, 26px);
+        --menu-scale: 0.78;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    :root {
+        --page-pad-x: 18px;
+        --page-pad-y: 16px;
+        --hamburger-size: 42px;
+        --menu-scale: 0.62;
+    }
+
+    .menu-wrap {
+        gap: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    :root {
+        --page-pad-x: 14px;
+        --page-pad-y: 14px;
+        --menu-scale: 0.54;
+    }
+
+    .menu-wrap {
+        top: calc(max(env(safe-area-inset-top), var(--page-pad-y)) + var(--hamburger-size) + 12px);
+    }
+}
+/*-----------main--------------------*/
+.main {
+  width: 100%;
+  background-image: url('../img_gallery/gallery-bg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  padding-top: 140px;
+}
+
+.main-title {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 80px;
+}
+
+.main-title h1 {
+  color: #41D1ED;
+  font-family: Kapakana;
+  font-size:clamp(48px,calc(80vw/14.4),160px);
+  font-weight: 400;
+  letter-spacing:0.1em;
+}
+
+.sub-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sub-title p {
+  color: #41D1ED;
+  font-family: "Noto Sans SC";
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 1.04px;
+  margin: 0 4px;
+}
+
+/*-----------gallery--------------------*/
+.gallery-wrapper {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap:36px;
+}
+
+/*＝＝＝並び替えボタンのCSS*/
+.sort-btn {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  gap:30px;
+}
+
+.sort-btn li {
+  width:clamp(120px,calc(234vw/14.4),468px);
+  aspect-ratio:234 / 64;
+  background: #ffffff00;
+  border: 1px solid #41D1ED;
+  list-style: none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor: pointer;
+  color: #FFF;
+  font-family: "Noto Sans SC";
+  font-size:clamp(14px,calc(24vw/14.4),48px);
+  font-weight: 400;
+  letter-spacing:0.1em;
+  transition: background 0.3s ease-in-out;
+}
+
+.sort-btn li:hover {
+  background: #60ecff30;
+}
+
+.sort-btn li.active {
+  background: #41D1ED;
+}
+
+/*＝＝＝Muuriのレイアウトのための調整 */
+.grid {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  list-style: none;
+}
+
+.item {
+  display: block;
+  position: absolute;
+  width: 33.3333%;
+  z-index: 1;
+  padding: 12px;
+}
+
+/* 图片外层 */
+.item-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* a 必须 block，否则图片外层是 inline，可能产生奇怪空隙 */
+.item-content a {
+  display: block;
+  width: 100%;
+}
+
+/* 画像の横幅を100%にしてレスポンシブ化 */
+.grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+/*============================
+============footer===========*/
+.footer{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:50px;
+  padding:100px 0;
+}
+.top-logo{
+  width:clamp(100px,calc(200vw/14.4),400px);
+}
+/*============================
+============redbook-icon===========*/
+.redbook-link-btn{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-decoration:none;
+  cursor:pointer;
+  gap:10px;
+  transition:opacity 0.3s ease-in-out;
+}
+.redbook-link-btn:hover{
+  opacity:0.5;
+}
+.redbook-icon{
+  width:clamp(24px,calc(46vw/14.4),72px);
+  aspect-ratio: 1 / 1;
+}
+.redbook-id{
+  color: #FFF;
+text-align: center;
+font-family: "Noto Sans SC";
+font-size:clamp(10px,calc(13vw/14.4),32px);
+font-weight: 400;
+}
+
+
+.copyright{
+  color: #FFF;
+text-align: center;
+font-size:10px;
+font-weight: 400;
+}
+
+/* 横幅が768px以下になった際の指定 */
+@media only screen and (max-width: 768px) {
+  .grid {
+    width: 88%;
+  }
+
+  .item {
+    width: 50%;
+    padding: 8px;
+  }
+}
+
+/* 横幅が480px以下になった際の指定 */
+@media screen and (max-width: 480px) {
+  .main-title {
+   padding-bottom:36px;
+  }
+  .gallery-wrapper{
+    gap:16px;
+  }
+  .sort-btn {
+    gap:16px;
+  }
+  .sort-btn li {
+    width:calc(169vw/4.02);
+    aspect-ratio:169/ 41;
+  }
+
+  .grid {
+    width: 90%;
+  }
+
+  .item {
+    width: 100%;
+    padding: 8px 0;
+  }
+}
+
+/*＝＝＝fancyboxサムネイル背景と画像選択時の枠線の指定*/
+.fancybox-thumbs {
+  background: transparent !important;
+}
+
+.fancybox-thumbs__list a:before {
+  border: 6px solid #FA999B;
+}

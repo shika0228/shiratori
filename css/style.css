@@ -1,0 +1,380 @@
+*{
+    scroll-behavior: smooth;
+    margin:0;
+    padding:0;
+    font-family: "Noto Sans SC"
+  }
+body{
+    display:flex;
+}
+/* 修改 style.css */
+.video-box {
+    width: 100%;
+    height: 100vh; 
+    position: relative; 
+    overflow: hidden; 
+}
+
+.video-box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: left top; 
+    display: block;
+}
+.button-box{
+  position: absolute;
+  z-index:999;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  gap:42px;
+  top:5%;
+  right:7%;
+}
+.link-btn{
+  width:calc(70vw/14.4);
+  min-width:70px;
+  aspect-ratio:7/ 6;
+  transform:opacity 0.3 ease-in-out;
+}
+.link-btn:hover{
+  opacity:0.6;
+}
+.link-btn-img{
+  width:calc(70vw/14.4);
+  min-width:70px;
+  aspect-ratio:7/ 6;
+}
+.music-btn{
+  width:calc(34vw/14.4);
+  min-width:34px;
+  aspect-ratio: 34 / 33;
+}
+.music-btn-img{
+  width:calc(34vw/14.4);
+  min-width:34px;
+  aspect-ratio: 34 / 33;
+}
+.menu-wrap{
+  padding:0;
+  z-index:3;
+  position:absolute;
+  right:8%;
+  bottom:5vh;
+  display:flex;
+  flex-direction:column;
+  gap:31px;
+} 
+.menu-button{
+  background-position:center;
+  background-size:contain;
+  background-repeat:none;
+  cursor: pointer;
+  overflow: visible;
+}
+#menu-button-1 {
+  width:calc(198vw/14.4);
+  aspect-ratio: 198 /115;
+  background: url('../img/menu-btn-1-before.svg') center / 100% no-repeat;
+  transition: transform 0.3s ease;
+}
+
+#menu-button-1:hover {
+  background-image: url('../img/menu-btn-after-1.svg');
+  transform: scale(1.05);
+}
+
+#menu-button-2 {
+  width:calc(385vw/14.4);
+  aspect-ratio: 385 / 116;
+  background: url('../img/menu-btn-2-before.svg') center / 100% no-repeat;
+  transition: transform 0.3s ease;
+}
+
+#menu-button-2:hover {
+  background-image: url('../img/menu-btn-after-2.svg');
+  transform: scale(1.05);
+}
+
+#menu-button-3 {
+  width:calc(390vw/14.4);
+  aspect-ratio: 390 /100;
+  background: url('../img/menu-btn-3-before.svg') center / 100% no-repeat;
+  transition: transform 0.3s ease;
+}
+
+#menu-button-3:hover {
+  background-image: url('../img/menu-btn-after-3.svg');
+  transform: scale(1.05);
+}
+
+#menu-button-4 {
+  width:calc(288vw/14.4);
+  aspect-ratio: 288 / 110;
+  background: url('../img/menu-btn-4-before.svg') center / 100% no-repeat;
+  transition: transform 0.3s ease;
+}
+
+#menu-button-4:hover {
+  background-image: url('../img/menu-btn-after-4.svg');
+  transform: scale(1.05);
+}
+.sign-wrapper{
+  position:absolute;
+  z-index:2;
+  width:500px;
+  left:7%;
+  bottom:6vh;
+}
+
+/* ================================
+   Opening Curtain Animation
+================================ */
+.opening {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  /* 幕布拉开后看到的“白色柔光”背景 */
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.69) 0%, rgba(255, 255, 255, 0.95) 24%, rgba(255, 255, 255, 0.88) 54%, rgba(255, 255, 255, 0.98) 100%);
+  animation: openingFadeOut 0.85s ease forwards;
+  animation-delay: 2.2s;
+}
+/* 背景的轻微模糊和刺眼柔光 */
+.opening::before {
+  content: "";
+  position: absolute;
+  inset: -8%;
+  z-index: 0;
+  background:
+    radial-gradient(circle at center, rgba(250, 250, 250, 0.5), rgba(255, 255, 255, 0) 20%);
+  filter: blur(30px);
+  opacity: 0.98;
+  transform: scale(1.05);
+  animation: openingLight 2.4s ease forwards;
+}
+
+/* logo 放在幕布后方：幕布拉开后才会被看见 */
+.opening-logo-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.opening-logo {
+  width: clamp(180px,calc(200vw / 14.4),400px);
+  opacity: 0;
+  transform: translateY(10px) scale(0.98);
+  filter: drop-shadow(0 8px 18px rgba(65, 118, 176, 0.22));
+  animation: logoReveal 1.05s ease forwards;
+  animation-delay: 0.88s;
+}
+
+/* 左右幕布 */
+.curtain {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 51%;
+  height: 100%;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.15) 0px,
+      rgba(255, 255, 255, 0.04) 24px,
+      rgba(0, 32, 86, 0.044) 48px,
+      rgba(255, 255, 255, 0.05) 76px
+    ),
+    linear-gradient(
+      180deg,
+      #abcff687 0%,
+      #5893d6a7 46%,
+      #4a6fa7b7 100%
+    );
+  box-shadow:
+    inset 0 0 46px rgba(0, 25, 70, 0.077),
+    inset 0 -22px 46px rgba(34, 41, 64, 0.22);
+  transform: translateX(0);
+  animation-duration: 2.3s;
+  animation-delay: 0.15s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(.72, 0, .18, 1);
+}
+
+/* 顶部幕布厚度 */
+.curtain::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 54px;
+  background: linear-gradient(180deg, rgba(100, 111, 134, 0.281), rgba(255, 255, 255, 0.09), rgba(0, 20, 70, 0));
+  opacity: 0.72;
+}
+
+/* 幕布中央合缝阴影 */
+.curtain::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 30px;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 10, 40, 0),
+    rgba(123, 133, 162, 0.34),
+    rgba(255, 255, 255, 0.12)
+  );
+  opacity: 0.8;
+}
+
+.curtain-left {
+  left: 0;
+  transform-origin: left center;
+  animation-name: curtainOpenLeft;
+}
+
+.curtain-right {
+  right: 0;
+  transform-origin: right center;
+  animation-name: curtainOpenRight;
+}
+
+.curtain-left::after {
+  right: -15px;
+}
+
+.curtain-right::after {
+  left: -15px;
+  transform: scaleX(-1);
+}
+
+@keyframes curtainOpenLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-150%);
+  }
+}
+
+@keyframes curtainOpenRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(150%);
+  }
+}
+
+@keyframes logoReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes openingLight {
+  0% {
+    opacity: 0.55;
+    transform: scale(0.98);
+  }
+  48% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+  100% {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes openingFadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  99% {
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/*-------------------------------------------------
+@media screen and (min-width: 1440px) {
+  .menu-wrap{
+    transform:scale(1.3);
+    bottom:15vh;
+  }
+}
+@media screen and (min-width: 1900px) {
+  .menu-wrap{
+    transform:scale(1.4);
+    bottom:18vh;
+  }
+}-----------*/
+/*--------------------------------------------------------*/
+@media screen and (max-width: 1000px) {
+  .sign-wrapper{
+    width:332px;
+    height:196px;
+  }
+}
+/*--------------------------------------------------------*/
+@media screen and (max-width: 800px) {
+  .menu-wrap{
+    bottom:5vh;
+    top:unset;
+    right:unset;
+    left:5%;
+    gap:14px;
+  }
+  #menu-button-1{
+    width:155px;
+    height:90px;
+  }
+  #menu-button-2{
+    width:302px;
+    height:91px;
+  }
+  #menu-button-3{
+    width:304px;
+    height:78px;
+  }
+  #menu-button-4{
+    width:224.19px;
+    height:86px;
+  }
+  .sign-wrapper{
+    display: none;
+  }
+}
+/*--------------------------------------------------------*/
+@media screen and (max-width: 600px) {
+  #share-btn{
+    background-image:url('../img/share-bk.svg');
+  }
+  #music-btn{
+    background-image:url('../img/music-bk.svg'); 
+  }
+  .video-box video {
+    object-position: 15% top;
+}
+}
