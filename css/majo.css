@@ -8,7 +8,9 @@
 :root {
     --page-pad-x: clamp(20px, 4vw, 72px);
     --page-pad-y: clamp(22px, 4vh, 48px);
-    --hamburger-size: clamp(39px, 2.8vw, 56px);
+    --hamburger-size: clamp(40px, 3vw, 56px);
+    --hamburger-line-width: 100%;
+    --hamburger-line-height: 3px;
     --menu-scale: 1;
 }
 body{
@@ -76,32 +78,31 @@ body{
     transform: scaleX(1.1);
   }
   
-  /* 汉堡按钮 */
   .hamburger {
     position: absolute;
     top: max(env(safe-area-inset-top), var(--page-pad-y));
     right: var(--page-pad-x);
     width: var(--hamburger-size);
     height: var(--hamburger-size);
-    background: none;
     border: none;
     cursor: pointer;
     pointer-events: auto;
-    background: #000000;
-    box-shadow: 2px 3px 0 0 #ffffff;
-    padding: 0 6px;
+    background:url(../img_character/menu-icon.webp);
+    background-position:center;
+    background-size:contain;
+    background-repeat:no-repeat;
+    z-index: 7;
+    transition: transform 0.32s ease, filter 0.32s ease;
+    will-change: transform, filter;
   }
-  
-  .hamburger span {
-    display: block;
-    width: 100%;
-    height: 3px;
-    background: #ffffff;
-    margin: 6px 0;
-    transition: transform 0.4s ease, opacity 0.3s ease;
+
+  .hamburger:hover {
+    transform: translateY(-5px);
+    filter:
+      drop-shadow(0 0 8px rgba(0, 170, 255, 0.78))
+      drop-shadow(0 0 18px rgba(0, 112, 255, 0.42));
   }
-  
-  /* 变成叉 */
+
   .hamburger.active span:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
   }
@@ -113,12 +114,34 @@ body{
   .hamburger.active span:nth-child(3) {
     transform: translateY(-9px) rotate(-45deg);
   }
+
+  .menu-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 4;
+    pointer-events: none;
+    background: linear-gradient(270deg,
+      rgba(0, 1, 5, 0.94) 0%,
+      rgba(0, 2, 8, 0.9) 28%,
+      rgba(0, 4, 12, 0.66) 52%,
+      rgba(0, 5, 14, 0.22) 76%,
+      rgba(0, 5, 14, 0) 100%
+    );
+    opacity: 0;
+    transform: translateX(8%);
+    transition: opacity 0.38s ease, transform 0.46s cubic-bezier(.4, 0, .2, 1);
+  }
+
+  .menu-backdrop.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
   
   /* 菜单本体（默认隐藏） */
   .menu-wrap {
     --menu-offset-y: 20px;
     padding: 0;
-    z-index: 3;
+    z-index: 6;
     position: absolute;
     right: var(--page-pad-x);
     top: calc(max(env(safe-area-inset-top), var(--page-pad-y)) + var(--hamburger-size) + 20px);
@@ -138,8 +161,10 @@ body{
     pointer-events: auto;
     transform: translateY(0) scale(var(--menu-scale));
   }
-  
+
   .menu-button {
+    position: relative;
+    z-index: 1;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -567,6 +592,33 @@ font-weight: 400;
     }
 }
 
+@media screen and (min-width: 1441px) and (min-height: 820px) {
+    :root {
+        --page-pad-x: clamp(72px, 5vw, 98px);
+        --page-pad-y: clamp(48px, 5.333vh, 65px);
+        --hamburger-size: clamp(56px, 3.889vw, 76px);
+        --menu-scale: clamp(1, calc(100vw / 1440px), 1.36);
+    }
+
+    .back-home {
+        gap: clamp(6px, 0.417vw, 8px);
+        font-size: clamp(16px, 1.111vw, 22px);
+    }
+
+    .back-home .decor {
+        gap: clamp(8px, 0.556vw, 11px);
+    }
+
+    .back-home .dot {
+        width: clamp(8px, 0.556vw, 11px);
+        height: clamp(8px, 0.556vw, 11px);
+    }
+
+    .back-home .line {
+        width: clamp(105px, 7.292vw, 143px);
+    }
+}
+
 @media screen and (max-width: 767px) {
     :root {
         --page-pad-x: 18px;
@@ -576,7 +628,7 @@ font-weight: 400;
     }
 
     .menu-wrap {
-        gap: 16px;
+        gap: 28px;
     }
 }
 
@@ -589,16 +641,22 @@ font-weight: 400;
 
     .menu-wrap {
         top: calc(max(env(safe-area-inset-top), var(--page-pad-y)) + var(--hamburger-size) + 12px);
+        gap: 30px;
     }
 }
 
 @media (hover: none) {
     .back-home:hover .line,
+    .hamburger:hover,
     #menu-button-1:hover,
     #menu-button-2:hover,
     #menu-button-3:hover,
     #menu-button-4:hover {
         transform: none;
+    }
+
+    .hamburger:hover {
+        filter: none;
     }
 }
 

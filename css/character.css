@@ -4,11 +4,11 @@
   --page-pad-y: clamp(22px, 4vh, 48px);
   --back-font-size: clamp(15px, 1vw, 18px);
   --back-line-width: clamp(84px, 7vw, 128px);
-  --hamburger-size: clamp(40px, 2.8vw, 56px);
+  --hamburger-size: clamp(40px, 3vw, 56px);
   --hamburger-line-width: 100%;
   --hamburger-line-height: 3px;
   --nav-size: clamp(95px, 5.6vw, 106px);
-  --nav-gap: clamp(42px, 2.8vh, 60px);
+  --nav-gap: clamp(46px, 4.8vh, 78px);
   --outfit-size: clamp(52px, 3.6vw, 68px);
   --outfit-gap: clamp(14px, 1.8vw, 28px);
   --visual-width: clamp(350px, 24vw, 440px);
@@ -136,21 +136,23 @@ body::before {
   right: var(--page-pad-x);
   width: var(--hamburger-size);
   height: var(--hamburger-size);
-  background: #fff;
   border: none;
   cursor: pointer;
   pointer-events: auto;
-  box-shadow: 2px 3px 0 0 #41D1ED;
-  padding: 0 clamp(6px, 0.6vw, 8px);
+  background:url(../img_character/menu-icon.webp);
+  background-position:center;
+  background-size:contain;
+  background-repeat:no-repeat;
+  z-index: 7;
+  transition: transform 0.32s ease, filter 0.32s ease;
+  will-change: transform, filter;
 }
 
-.hamburger span {
-  display: block;
-  width: var(--hamburger-line-width);
-  height: var(--hamburger-line-height);
-  background: #000;
-  margin: clamp(6px, 0.55vw, 7px) 0;
-  transition: transform 0.4s ease, opacity 0.3s ease;
+.hamburger:hover {
+  transform: translateY(-5px);
+  filter:
+    drop-shadow(0 0 8px rgba(0, 170, 255, 0.78))
+    drop-shadow(0 0 18px rgba(0, 112, 255, 0.42));
 }
 
 .hamburger.active span:nth-child(1) {
@@ -165,10 +167,32 @@ body::before {
   transform: translateY(-9px) rotate(-45deg);
 }
 
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background: linear-gradient(270deg,
+    rgba(0, 1, 5, 0.94) 0%,
+    rgba(0, 2, 8, 0.9) 28%,
+    rgba(0, 4, 12, 0.66) 52%,
+    rgba(0, 5, 14, 0.22) 76%,
+    rgba(0, 5, 14, 0) 100%
+  );
+  opacity: 0;
+  transform: translateX(8%);
+  transition: opacity 0.38s ease, transform 0.46s cubic-bezier(.4, 0, .2, 1);
+}
+
+.menu-backdrop.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .menu-wrap {
   --menu-offset-y: 20px;
   padding: 0;
-  z-index: 3;
+  z-index: 6;
   position: absolute;
   right: var(--page-pad-x);
   top: calc(max(env(safe-area-inset-top), var(--page-pad-y)) + var(--hamburger-size) + 20px);
@@ -189,6 +213,8 @@ body::before {
 }
 
 .menu-button {
+  position: relative;
+  z-index: 1;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -247,7 +273,7 @@ body::before {
 .stage__bg-light {
   position: fixed;
   left: 50%;
-  top:60%;
+  top: 60%;
   width: var(--bg-light-width);
   max-width: 100%;
   transform: translate(-50%, -52%);
@@ -265,7 +291,7 @@ body::before {
 
 .stage__nav {
   position: absolute;
-  left: clamp(0px, 10vw, 60px);
+  left: clamp(64px, calc(10vw + 64px), 124px);
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -277,11 +303,10 @@ body::before {
 .nav-item {
   --rotate: 0deg;
   --nav-scale: 1;
-  width:calc(95vw/14.4);
-  min-width:95px;
-  aspect-ratio:1 / 1;
+  width: calc(95vw/14.4);
+  min-width: 95px;
+  aspect-ratio: 1 / 1;
   background: rgba(255, 255, 255);
-  box-shadow: 5px 5px 0 0 #41D1ED;
   border: none;
   cursor: pointer;
   padding: 0;
@@ -293,11 +318,13 @@ body::before {
 .nav-item:hover {
   --nav-scale: 0.9;
   opacity: 0.8;
+  box-shadow: 5px 5px 0 0 #41D1ED;
+
 }
 
 #nav-item-1 {
   --rotate: 15deg;
-  background-image: url('../img_character/click-1.png');
+  background-image: url('../img_character/click-1.webp');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -305,7 +332,7 @@ body::before {
 
 #nav-item-2 {
   --rotate: -7.827deg;
-  background-image: url('../img_character/click-2.png');
+  background-image: url('../img_character/click-2.webp');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -313,10 +340,16 @@ body::before {
 
 #nav-item-3 {
   --rotate: 9.467deg;
-  background-image: url('../img_character/click-3.png');
+  background-image: url('../img_character/click-3.webp');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+@media (min-width: 768px) {
+  #nav-item-2 {
+    margin-left: -36px;
+  }
 }
 
 .nav-item.is-active {
@@ -356,7 +389,7 @@ body::before {
 }
 
 .visual-item-main {
-  width:calc(466vw/14.4);
+  width: calc(466vw/14.4);
   opacity: 0;
   transform: translateY(24px);
   will-change: opacity, transform;
@@ -372,7 +405,7 @@ body::before {
   height: var(--visual-main-height);
   transform: scaleY(-1);
   opacity: 0.25;
-  bottom: -105%;
+  bottom: -103%;
   pointer-events: none;
 }
 
@@ -386,41 +419,41 @@ body::before {
   z-index: 3;
 }
 
-.stage-nav-for-each > img {
+.stage-nav-for-each>img {
   flex-shrink: 0;
-  width:calc(55vw/14.4);
-  min-width:55px;
+  width: calc(55vw/14.4);
+  min-width: 55px;
 }
 
 .stage-nav-for-each-buttons {
   display: flex;
   align-items: center;
   gap: var(--outfit-gap);
-  flex-wrap: wrap;
-  width:calc(360vw/14.4);
-  min-width:260px;
+  flex-wrap: nowrap;
+  width: auto;
+  max-width: min(38vw, 360px);
 }
 
 .stage-nav-for-each-item {
-  width:calc(54vw/14.4);
+  width: clamp(42px, 3.2vw, 54px);
   aspect-ratio: 1 / 1;
-  min-width:42px;
+  flex: 0 0 auto;
   background-color: rgba(255, 255, 255);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  box-shadow: 5px 5px 0 0 #41D1ED;
   border: none;
   cursor: pointer;
   padding: 0;
   opacity: 1;
   transform: translateY(0);
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
 }
 
 .stage-nav-for-each-item:hover {
   opacity: 0.8;
   transform: translateY(-6px);
+  box-shadow: 3px 3px 0 0 #41D1ED;
 }
 
 .stage-nav-for-each-item.is-active {
@@ -465,8 +498,8 @@ body::before {
   gap: 10px;
 }
 
-.info-title-wrapper > img {
-  width: clamp(30px, 2.8vw, 42px);
+.info-title-wrapper>img {
+  width: clamp(30px, 2.2vw, 42px);
   height: auto;
 }
 
@@ -482,11 +515,9 @@ body::before {
   margin-top: 18px;
   height: 1px;
   margin-bottom: 16px;
-  background: repeating-linear-gradient(
-    to right,
-    #fff 0 6px,
-    transparent 6px 12px
-  );
+  background: repeating-linear-gradient(to right,
+      #fff 0 6px,
+      transparent 6px 12px);
 }
 
 .info-text {
@@ -524,38 +555,39 @@ body::before {
 
 /* 超过 MacBook Air 基准后，整体按比例放大 */
 html.is-large-desktop {
-  --page-pad-x: calc(86px * var(--desktop-scale));
-  --page-pad-y: calc(54px * var(--desktop-scale));
-  --back-font-size: calc(16px * var(--desktop-scale));
-  --back-line-width: calc(120px * var(--desktop-scale));
-  --hamburger-size: calc(39px * var(--desktop-scale));
+  --page-pad-x: calc(57.6px * var(--desktop-scale));
+  --page-pad-y: calc(36px * var(--desktop-scale));
+  --back-font-size: calc(15px * var(--desktop-scale));
+  --back-line-width: calc(100.8px * var(--desktop-scale));
+  --hamburger-size: calc(43.2px * var(--desktop-scale));
   --nav-size: calc(95px * var(--desktop-scale));
-  --nav-gap: calc(39px * var(--desktop-scale));
-  --outfit-size: calc(54px * var(--desktop-scale));
-  --outfit-gap: calc(20px * var(--desktop-scale));
-  --visual-width: calc(340px * var(--desktop-scale));
-  --visual-height: calc(547px * var(--desktop-scale));
-  --visual-main-height: calc(651px * var(--desktop-scale));
-  --info-width: calc(350px * var(--desktop-scale));
-  --info-min-height: calc(520px * var(--desktop-scale));
-  --title-image-width: calc(249.07px * var(--desktop-scale));
-  --title-font-size: calc(24px * var(--desktop-scale));
-  --body-font-size: calc(12px * var(--desktop-scale));
+  --nav-gap: calc(46px * var(--desktop-scale));
+  --outfit-size: calc(46px * var(--desktop-scale));
+  --outfit-gap: calc(26px * var(--desktop-scale));
+  --visual-width: calc(350px * var(--desktop-scale));
+  --visual-height: calc(var(--visual-width) * 1.6088235294);
+  --visual-main-height: calc(590px * var(--desktop-scale));
+  --bg-light-width: calc(835px * var(--desktop-scale));
+  --info-width: calc(360px * var(--desktop-scale));
+  --info-min-height: calc(500px * var(--desktop-scale));
+  --title-image-width: calc(216px * var(--desktop-scale));
+  --title-font-size: calc(26px * var(--desktop-scale));
+  --body-font-size: calc(13.25px * var(--desktop-scale));
   --menu-scale: var(--desktop-scale);
 }
 
 html.is-large-desktop .stage {
-  width: 100%;
+  width: min(calc(1324.8px * var(--desktop-scale)), calc(100vw - (var(--page-pad-x) * 2)));
   min-height: 100svh;
 }
 
 html.is-large-desktop .stage__bg-light {
-  top:50%;
+  top: 50%;
   transform: translate(-50%, -52%);
 }
 
 html.is-large-desktop .stage__nav {
-  left: calc(144px * var(--desktop-scale));
+  left: calc(124px * var(--desktop-scale));
 }
 
 html.is-large-desktop .stage__visual {
@@ -563,31 +595,39 @@ html.is-large-desktop .stage__visual {
   transform: translate(-50%, -51%);
 }
 
-html.is-large-desktop .stage-nav-for-each {
-  left: calc(144px * var(--desktop-scale));
-  bottom: calc(58px * var(--desktop-scale));
-  gap: calc(30px * var(--desktop-scale));
+html.is-large-desktop .visual-item-main {
+  width: calc(466px * var(--desktop-scale));
 }
 
-html.is-large-desktop .stage-nav-for-each > img {
-  width: calc(74px * var(--desktop-scale));
+html.is-large-desktop .stage-nav-for-each {
+  left: calc(60px * var(--desktop-scale));
+  bottom: calc(72px * var(--desktop-scale));
+  gap: var(--outfit-gap);
+}
+
+html.is-large-desktop .stage-nav-for-each>img {
+  width: calc(55px * var(--desktop-scale));
 }
 
 html.is-large-desktop .stage-nav-for-each-buttons {
-  gap: calc(16px * var(--desktop-scale));
+  gap: var(--outfit-gap);
   max-width: calc(360px * var(--desktop-scale));
 }
 
+html.is-large-desktop .stage-nav-for-each-item {
+  width: var(--outfit-size);
+}
+
 html.is-large-desktop .stage__info {
-  right: calc(86px * var(--desktop-scale));
+  right: calc(14.4px * var(--desktop-scale));
 }
 
 html.is-large-desktop .info-title-wrapper {
   gap: calc(10px * var(--desktop-scale));
 }
 
-html.is-large-desktop .info-title-wrapper > img {
-  width: calc(36px * var(--desktop-scale));
+html.is-large-desktop .info-title-wrapper>img {
+  width: calc(24px * var(--desktop-scale));
 }
 
 html.is-large-desktop .dash-line {
@@ -610,6 +650,10 @@ html.is-large-desktop .read-more {
   letter-spacing: 0.15em;
 }
 
+html.is-large-desktop .back-home {
+  gap: calc(10px * var(--desktop-scale));
+}
+
 html.is-large-desktop .back-home .decor,
 html.is-large-desktop .read-more .decor {
   gap: calc(8px * var(--desktop-scale));
@@ -619,11 +663,6 @@ html.is-large-desktop .back-home .dot,
 html.is-large-desktop .read-more .dot {
   width: calc(8px * var(--desktop-scale));
   height: calc(8px * var(--desktop-scale));
-}
-
-html.is-large-desktop .hamburger {
-  box-shadow: calc(2px * var(--desktop-scale)) calc(3px * var(--desktop-scale)) 0 0 #41D1ED;
-  padding: 0 calc(6px * var(--desktop-scale));
 }
 
 html.is-large-desktop .hamburger span {
@@ -637,7 +676,7 @@ html.is-large-desktop .stage-nav-for-each-item {
 }
 
 html.is-large-desktop .visual-item-main-reflect {
-  bottom: -126%;
+  bottom: -103%;
 }
 
 @media (max-width: 1100px) {
@@ -680,9 +719,11 @@ html.is-large-desktop .visual-item-main-reflect {
     row-gap: 24px;
     overflow: visible;
   }
+
   .visual-item-main {
-    width:calc(500vw/10);
+    width: calc(500vw/10);
   }
+
   .stage__visual,
   .stage__nav,
   .stage-nav-for-each,
@@ -719,6 +760,8 @@ html.is-large-desktop .visual-item-main-reflect {
 
   .stage-nav-for-each-buttons {
     justify-content: center;
+    flex-wrap: wrap;
+    width: calc(360vw/14.4);
     max-width: 100%;
   }
 
@@ -749,11 +792,13 @@ html.is-large-desktop .visual-item-main-reflect {
     bottom: -115%;
   }
 }
-@media screen and (max-width:900px){
+
+@media screen and (max-width:900px) {
   .visual-item-main {
-    width:calc(500vw/9.0);
+    width: calc(500vw/9.0);
   }
 }
+
 @media (max-width: 767px) {
   :root {
     --page-pad-x: 18px;
@@ -773,7 +818,7 @@ html.is-large-desktop .visual-item-main-reflect {
   }
 
   .menu-wrap {
-    gap: 16px;
+    gap: 28px;
   }
 
   .stage__bg-light {
@@ -791,18 +836,31 @@ html.is-large-desktop .visual-item-main-reflect {
   }
 
   .stage__nav {
-    margin:24px 0;
+    margin: 24px 0;
     gap: 60px;
   }
 
   .stage-nav-for-each {
     align-items: center;
-    justify-content:flex-end;
-    margin-right:20px;
+    justify-content: center;
+    margin-right: 0;
   }
 
-  .stage-nav-for-each > img {
+  .stage-nav-for-each>img {
     width: 56px;
+  }
+
+  .stage-nav-for-each-buttons {
+    width: min(100%, 320px);
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .stage-nav-for-each-item {
+    width: clamp(42px, 11vw, 50px);
   }
 
   .stage__info {
@@ -814,7 +872,7 @@ html.is-large-desktop .visual-item-main-reflect {
     gap: 8px;
   }
 
-  .info-title-wrapper > img {
+  .info-title-wrapper>img {
     width: 32px;
   }
 
@@ -830,15 +888,18 @@ html.is-large-desktop .visual-item-main-reflect {
   .visual-item-main-reflect {
     display: none;
   }
+
   .visual-item-main {
-    width:calc(500vw/7.0);
+    width: calc(500vw/7.0);
   }
 }
-@media screen and (max-width:600px){
+
+@media screen and (max-width:600px) {
   .visual-item-main {
-    width:calc(500vw/6.0);
+    width: calc(500vw/6.0);
   }
 }
+
 @media (max-width: 480px) {
   :root {
     --page-pad-x: 14px;
@@ -859,6 +920,7 @@ html.is-large-desktop .visual-item-main-reflect {
 
   .menu-wrap {
     top: calc(max(env(safe-area-inset-top), var(--page-pad-y)) + var(--hamburger-size) + 12px);
+    gap: 30px;
   }
 
   .stage__bg-light {
@@ -878,12 +940,13 @@ html.is-large-desktop .visual-item-main-reflect {
     gap: 20px;
   }
 
-  .stage-nav-for-each > img {
+  .stage-nav-for-each>img {
     width: 52px;
   }
 
   .stage-nav-for-each-buttons {
-    gap: 24px;
+    width: min(100%, 292px);
+    gap: 10px;
   }
 
   .info-text {
@@ -892,10 +955,12 @@ html.is-large-desktop .visual-item-main-reflect {
 }
 
 @media (hover: none) {
+
   .nav-item:hover,
   .stage-nav-for-each-item:hover,
   .back-home:hover .line,
   .read-more:hover .line,
+  .hamburger:hover,
   #menu-button-1:hover,
   #menu-button-2:hover,
   #menu-button-3:hover,
@@ -903,9 +968,14 @@ html.is-large-desktop .visual-item-main-reflect {
     transform: none;
     opacity: inherit;
   }
+
+  .hamburger:hover {
+    filter: none;
+  }
 }
-@media screen and (max-width:400px){
-    .visual-item-main {
-      width:calc(380vw/4.0);
-    }
+
+@media screen and (max-width:400px) {
+  .visual-item-main {
+    width: calc(380vw/4.0);
+  }
 }
