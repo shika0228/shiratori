@@ -746,8 +746,12 @@ html.is-large-desktop .visual-item-main-reflect {
     width: 100%;
     justify-content: center;
     flex-direction: row;
-    gap: clamp(16px, 2.6vw, 28px);
+    gap: clamp(36px, 7vw, 72px);
     padding-top: 4px;
+  }
+
+  #nav-item-2 {
+    margin-left: 0;
   }
 
   .stage-nav-for-each {
@@ -804,7 +808,7 @@ html.is-large-desktop .visual-item-main-reflect {
     --page-pad-x: clamp(28px, 4vw, 44px);
     --page-pad-y: clamp(24px, 3vh, 36px);
     --menu-scale: 0.72;
-    --nav-size: clamp(88px, 10vw, 102px);
+    --nav-size: clamp(86px, 9vw, 100px);
     --outfit-size: clamp(50px, 6vw, 60px);
     --visual-width: min(46vw, 380px);
     --visual-main-height: min(70vw, 620px);
@@ -835,8 +839,8 @@ html.is-large-desktop .visual-item-main-reflect {
   }
 
   .stage__nav {
-    gap: clamp(18px, 3vw, 28px);
-    margin: 10px 0;
+    gap: clamp(48px, 8vw, 86px);
+    margin: 18px 0 20px;
   }
 
   .stage-nav-for-each {

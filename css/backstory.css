@@ -281,7 +281,7 @@ body {
 .hourglass-frame {
     position: relative;
     z-index: 1;
-    width:clamp(220px,calc(308vw/14.4),1100px);
+    width: clamp(300px, calc(360vw / 14.4), 1100px);
     user-select: none;
 }
 
@@ -327,7 +327,7 @@ body {
 .main-title h1 {
     color: #E0B85A;
     font-family: Kapakana, cursive;
-    font-size:clamp(36px,calc(64vw/14.4),128px);
+    font-size: clamp(48px, calc(82vw / 14.4), 128px);
     font-weight: 400;
     letter-spacing:0.1em;
 }
@@ -341,7 +341,7 @@ body {
 
 .main-subtitle p {
     color: #E0B85A;
-    font-size: clamp(13px, calc(13vw / 14.4), 26px);
+    font-size: clamp(14px, calc(16vw / 14.4), 26px);
     font-weight: 300;
     letter-spacing: 0.08em;
     padding: 0 4px;
@@ -405,7 +405,7 @@ body {
 
 .main-text {
     position: relative;
-    font-size:clamp(16px,calc(24vw/14.4),48px);
+    font-size: clamp(18px, calc(29vw / 14.4), 48px);
     padding: 10px 24px;
     letter-spacing: 2px;
     transition: color 0.3s ease;
@@ -683,32 +683,32 @@ body {
     }
 
     .main-title {
-        transform: translateY(-18px);
+        transform: translateY(-22px);
     }
 
     .main-title h1 {
-        font-size: clamp(54px, 8vw, 76px);
+        font-size: clamp(72px, 10vw, 104px);
     }
 
     .main-subtitle p {
-        font-size: clamp(15px, 1.8vw, 18px);
+        font-size: clamp(17px, 2.2vw, 22px);
     }
 
     .hourglass-frame {
-        width: clamp(250px, 30vw, 330px);
+        width: clamp(340px, 42vw, 430px);
     }
 
     .btn-witch {
-        right: clamp(-132px, -13vw, -104px);
+        right: clamp(-168px, -16vw, -128px);
     }
 
     .btn-pokemon {
-        left: clamp(-124px, -12vw, -96px);
+        left: clamp(-158px, -15vw, -120px);
     }
 
     .main-text {
-        font-size: clamp(18px, 2.5vw, 26px);
-        padding: 10px 22px;
+        font-size: clamp(22px, 3vw, 32px);
+        padding: 12px 26px;
     }
 
     .background-story__inner {
