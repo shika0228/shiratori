@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>白鸟-backstory-</title>
+  <link rel="icon" href="icon.ico?v=1" type="image/x-icon">
+  <link rel="shortcut icon" href="icon.ico?v=1" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kapakana:wght@300..400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/backstory.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <!-- 返回主页 -->
+    <a href="index.html" class="back-home">
+      <span class="text">返回主页</span>
+      <span class="decor">
+        <i class="dot"></i>
+        <i class="line"></i>
+      </span>
+    </a>
+
+    <!-- 汉堡按钮 -->
+    <button class="hamburger" id="hamburger" aria-label="menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="menu-backdrop" id="menu-backdrop" aria-hidden="true"></div>
+
+    <!-- 菜单 -->
+    <div class="menu-wrap" id="menu">
+      <a href="index.html" class="menu-button" id="menu-button-1"></a>
+      <a href="character.html" class="menu-button" id="menu-button-2"></a>
+      <a href="backstory.html" class="menu-button" id="menu-button-3"></a>
+      <a href="gallery.html" class="menu-button" id="menu-button-4"></a>
+    </div>
+  </header>
+
+  <main class="main">
+    <img class="stage__bg-light" src="./img_character/light.svg" alt="">
+
+    <div class="main-title">
+      <h1>Parallel World</h1>
+      <div class="main-subtitle">
+        <img src="./img_background/main-title-deco.svg" alt="">
+        <p>世界观</p>
+        <img src="./img_background/main-title-deco.svg" alt="">
+      </div>
+    </div>
+
+    <div class="hourglass-wrapper">
+      <img class="hourglass-frame" src="./img_background/hourglass.webp" draggable="false" alt="hourglass">
+      <a href="majo_story.html" class="hourglass-link hourglass-link-top" aria-label="前往时之魔女故事">
+        <img class="hourglass-piece hourglass-piece-top" src="./img_background/hourglass-top.webp" draggable="false" alt="">
+      </a>
+      <a href="poketrainer.html" class="hourglass-link hourglass-link-bottom" aria-label="前往宝可梦训练家">
+        <img class="hourglass-piece hourglass-piece-bottom" src="./img_background/hourglass-bottom.webp" draggable="false" alt="">
+      </a>
+
+      <a href="majo_story.html" class="story-btn btn-witch">
+        <div class="meta-label">
+          <span class="decor-line"></span>前往
+        </div>
+        <div class="main-text">
+          时之魔女
+        </div>
+      </a>
+
+      <a href="poketrainer.html" class="story-btn btn-pokemon">
+        <div class="meta-label">
+          <span class="decor-line"></span>前往
+        </div>
+        <div class="main-text">
+          宝可梦<br>训练家
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <script src="./js/viewport-scale.js"></script>
+  <script src="./js/backstory.js"></script>
+</body>
+
+</html>

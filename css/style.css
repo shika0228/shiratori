@@ -1,0 +1,472 @@
+*{
+    scroll-behavior: smooth;
+    margin:0;
+    padding:0;
+    font-family: "Noto Sans SC"
+  }
+:root{
+  --desktop-scale: 1;
+  --shell-page-pad-x: clamp(20px, 4vw, 72px);
+  --shell-page-pad-y: clamp(22px, 4vh, 48px);
+  --shell-hamburger-size: clamp(40px, 3vw, 56px);
+  --shell-music-size: clamp(34px, 2.4vw, 45px);
+  --shell-music-gap: clamp(24px, 2.5vw, 36px);
+}
+body{
+    display:flex;
+}
+body.site-shell{
+  display:block;
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+  background:#000;
+}
+.site-frame{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+  display:block;
+  background:#000;
+}
+/* 修改 style.css */
+.video-box {
+    width: 100%;
+    height: 100vh; 
+    position: relative; 
+    overflow: hidden; 
+}
+
+.video-box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: left top; 
+    display: block;
+}
+.button-box{
+  position: absolute;
+  z-index:999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:calc(42px * var(--desktop-scale));
+  top:max(env(safe-area-inset-top), var(--shell-page-pad-y));
+  right:calc(var(--shell-page-pad-x) + var(--shell-hamburger-size) + var(--shell-music-gap));
+  min-height:var(--shell-hamburger-size);
+}
+.link-btn{
+  width:calc(70vw/14.4);
+  min-width:70px;
+  aspect-ratio:7/ 6;
+  transition: opacity 0.3s ease-in-out;
+}
+.link-btn:hover{
+  opacity:0.6;
+}
+.link-btn-img{
+  width:calc(70vw/14.4);
+  min-width:70px;
+  aspect-ratio:7/ 6;
+}
+.music-btn{
+  width:var(--shell-music-size);
+  aspect-ratio: 34 / 33;
+  border:0;
+  padding:0;
+  background:transparent;
+  cursor:pointer;
+  line-height:0;
+  transition:opacity 0.3s ease-in-out;
+  -webkit-tap-highlight-color:transparent;
+}
+.music-btn:hover{
+  opacity:0.72;
+}
+.global-music-btn{
+  position:fixed;
+  z-index:2000;
+  top:max(env(safe-area-inset-top), var(--shell-page-pad-y));
+  right:calc(var(--shell-page-pad-x) + var(--shell-hamburger-size) + var(--shell-music-gap));
+}
+body.shell-opening .global-music-btn{
+  opacity:0;
+  pointer-events:none;
+}
+.music-btn-placeholder{
+  visibility:hidden;
+  pointer-events:none;
+  align-self:flex-start;
+}
+.music-btn-img{
+  width:100%;
+  aspect-ratio: 34 / 33;
+  display:block;
+  pointer-events:none;
+}
+
+@media screen and (min-width: 1441px) and (min-height: 820px) {
+  :root{
+    --shell-page-pad-x: calc(72px * var(--desktop-scale));
+    --shell-page-pad-y: calc(48px * var(--desktop-scale));
+    --shell-hamburger-size: calc(56px * var(--desktop-scale));
+    --shell-music-size: calc(45px * var(--desktop-scale));
+    --shell-music-gap: calc(36px * var(--desktop-scale));
+  }
+}
+
+@media screen and (max-width: 767px) {
+  :root{
+    --shell-page-pad-x: 18px;
+    --shell-page-pad-y: 16px;
+    --shell-hamburger-size: 42px;
+    --shell-music-size: 34px;
+    --shell-music-gap: 22px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root{
+    --shell-page-pad-x: 14px;
+    --shell-page-pad-y: 14px;
+    --shell-music-gap: 16px;
+  }
+}
+.menu-wrap{
+  padding:0;
+  z-index:3;
+  position:absolute;
+  right:8%;
+  bottom:5vh;
+  display:flex;
+  flex-direction:column;
+  gap:31px;
+} 
+
+/* Safari対策：空のaタグを背景画像ボタンとして使うため、inlineのままにしない */
+.menu-button{
+  display:block;
+  flex:0 0 auto;
+  background-position:center;
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-color:transparent;
+  cursor:pointer;
+  overflow:visible;
+  line-height:0;
+  font-size:0;
+  text-decoration:none;
+  -webkit-tap-highlight-color:transparent;
+}
+
+#menu-button-1 {
+  width:calc(198vw/14.4);
+  aspect-ratio: 198 / 115;
+  background-image: url('../img/menu-btn-1-before.webp');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform 0.3s ease;
+}
+
+#menu-button-1:hover {
+  background-image: url('../img/menu-btn-after-1.webp');
+  transform: scale(1.05);
+}
+
+#menu-button-2 {
+  width:calc(385vw/14.4);
+  aspect-ratio: 385 / 116;
+  background-image: url('../img/menu-btn-2-before.webp');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform 0.3s ease;
+}
+
+#menu-button-2:hover {
+  background-image: url('../img/menu-btn-after-2.webp');
+  transform: scale(1.05);
+}
+
+#menu-button-3 {
+  width:calc(390vw/14.4);
+  aspect-ratio: 390 / 100;
+  background-image: url('../img/menu-btn-3-before.webp');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform 0.3s ease;
+}
+
+#menu-button-3:hover {
+  background-image: url('../img/menu-btn-after-3.webp');
+  transform: scale(1.05);
+}
+
+#menu-button-4 {
+  width:calc(288vw/14.4);
+  aspect-ratio: 288 / 110;
+  background-image: url('../img/menu-btn-4-before.webp');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform 0.3s ease;
+}
+
+#menu-button-4:hover {
+  background-image: url('../img/menu-btn-after-4.webp');
+  transform: scale(1.05);
+}
+
+/* ================================
+   Opening Curtain Animation
+================================ */
+.opening {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  background: rgba(0, 3, 10, 0.58);
+  animation:
+    openingBaseLift 2.08s cubic-bezier(.55, 0, .24, 1) forwards,
+    openingFadeOut 0.58s ease forwards;
+  animation-delay: 0s, 2.1s;
+}
+
+.opening::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 50% 48%, rgba(24, 63, 92, 0.18), rgba(0, 2, 8, 0) 44%),
+    linear-gradient(180deg, rgba(0, 3, 10, 0.42) 0%, rgba(0, 1, 6, 0.72) 100%);
+  opacity: 0.94;
+  animation: openingShadeLift 2.08s cubic-bezier(.55, 0, .24, 1) forwards;
+}
+
+/* 左右幕布 */
+.curtain {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 53%;
+  height: 100%;
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.018) 0%, rgba(33, 88, 126, 0) 24%, rgba(7, 25, 47, 0.025) 100%),
+    radial-gradient(ellipse at 50% 4%, rgba(200, 235, 248, 0.035) 0%, rgba(200, 235, 248, 0) 50%),
+    linear-gradient(90deg, rgba(8, 28, 52, 0.02), rgba(255, 255, 255, 0) 18%, rgba(255, 255, 255, 0) 82%, rgba(8, 28, 52, 0.02)),
+    url('../img/opening-curtain-texture.png');
+  background-size:
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    118% 100%;
+  background-position:
+    center,
+    center,
+    center,
+    center top;
+  background-repeat: no-repeat;
+  box-shadow:
+    inset 0 0 14px rgba(4, 22, 47, 0.06),
+    inset 0 -28px 40px rgba(3, 19, 42, 0.07),
+    inset 0 18px 28px rgba(196, 230, 242, 0.045);
+  transform: translateX(0);
+  animation-duration: 2.06s;
+  animation-delay: 0.1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(.76, 0, .18, 1);
+}
+
+/* 顶部幕布厚度 */
+.curtain::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(180deg, rgba(216, 239, 247, 0.055) 0%, rgba(216, 239, 247, 0) 15%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0) 18%, rgba(0, 0, 0, 0.06) 72%, rgba(255, 255, 255, 0.03));
+  mix-blend-mode: soft-light;
+  opacity: 0.46;
+}
+
+/* 幕布中央合缝阴影 */
+.curtain::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 22px;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(18, 58, 91, 0.1),
+    rgba(112, 184, 216, 0.12),
+    rgba(255, 255, 255, 0.04),
+    rgba(0, 0, 0, 0)
+  );
+  opacity: 0.42;
+}
+
+.curtain-left {
+  left: 0;
+  transform-origin: left center;
+  animation-name: curtainOpenLeft;
+}
+
+.curtain-right {
+  right: 0;
+  transform-origin: right center;
+  animation-name: curtainOpenRight;
+  background-position:
+    center,
+    center,
+    center,
+    right top;
+}
+
+.curtain-left::after {
+  right: 0;
+}
+
+.curtain-right::after {
+  left: 0;
+  transform: scaleX(-1);
+}
+
+@keyframes curtainOpenLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-150%);
+  }
+}
+
+@keyframes curtainOpenRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(150%);
+  }
+}
+
+@keyframes openingBaseLift {
+  0% {
+    background: rgba(0, 3, 10, 0.58);
+  }
+  45% {
+    background: rgba(0, 3, 10, 0.42);
+  }
+  100% {
+    background: rgba(0, 3, 10, 0.18);
+  }
+}
+
+@keyframes openingShadeLift {
+  0% {
+    opacity: 0.94;
+  }
+  42% {
+    opacity: 0.62;
+  }
+  100% {
+    opacity: 0.18;
+  }
+}
+
+@keyframes openingFadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  99% {
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/*-------------------------------------------------
+@media screen and (min-width: 1440px) {
+  .menu-wrap{
+    transform:scale(1.3);
+    bottom:15vh;
+  }
+}
+@media screen and (min-width: 1900px) {
+  .menu-wrap{
+    transform:scale(1.4);
+    bottom:18vh;
+  }
+}-----------*/
+/*--------------------------------------------------------*/
+@media screen and (max-width: 1000px) {
+  .sign-wrapper{
+    width:332px;
+    height:196px;
+  }
+}
+/*--------------------------------------------------------*/
+@media screen and (max-width: 800px) {
+  .curtain {
+    width: 56%;
+    background-size:
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      auto 100%;
+  }
+
+  .menu-wrap{
+    bottom:5vh;
+    top:unset;
+    right:unset;
+    left:5%;
+    gap:14px;
+  }
+  #menu-button-1{
+    width:155px;
+    height:90px;
+  }
+  #menu-button-2{
+    width:302px;
+    height:91px;
+  }
+  #menu-button-3{
+    width:304px;
+    height:78px;
+  }
+  #menu-button-4{
+    width:224.19px;
+    height:86px;
+  }
+  .sign-wrapper{
+    display: none;
+  }
+}
+/*--------------------------------------------------------*/
+@media screen and (max-width: 600px) {
+  #share-btn{
+    background-image:url('../img/share-bk.svg');
+  }
+  #music-btn{
+    background-image:none; 
+  }
+  .video-box video {
+    object-position: 15% top;
+}
+}
