@@ -799,6 +799,66 @@ html.is-large-desktop .visual-item-main-reflect {
   }
 }
 
+@media screen and (min-width: 768px) and (max-width: 1100px) and (orientation: portrait) {
+  :root {
+    --page-pad-x: clamp(28px, 4vw, 44px);
+    --page-pad-y: clamp(24px, 3vh, 36px);
+    --menu-scale: 0.72;
+    --nav-size: clamp(88px, 10vw, 102px);
+    --outfit-size: clamp(50px, 6vw, 60px);
+    --visual-width: min(46vw, 380px);
+    --visual-main-height: min(70vw, 620px);
+    --bg-light-width: min(88vw, 760px);
+    --info-width: min(680px, 82vw);
+    --title-image-width: clamp(230px, 30vw, 300px);
+    --title-font-size: clamp(24px, 3vw, 30px);
+    --body-font-size: clamp(14px, 1.6vw, 16px);
+  }
+
+  .stage {
+    width: min(100%, 860px);
+    padding-top: calc(max(env(safe-area-inset-top), var(--page-pad-y)) + var(--hamburger-size) + 34px);
+    padding-bottom: 72px;
+    row-gap: 26px;
+  }
+
+  .stage__bg-light {
+    width: var(--bg-light-width);
+  }
+
+  .stage__visual {
+    margin-top: 0;
+  }
+
+  .visual-item-main {
+    width: min(50vw, 460px);
+  }
+
+  .stage__nav {
+    gap: clamp(18px, 3vw, 28px);
+    margin: 10px 0;
+  }
+
+  .stage-nav-for-each {
+    margin-top: 0;
+    gap: 22px;
+  }
+
+  .stage-nav-for-each-buttons {
+    width: min(420px, 64vw);
+    gap: 18px;
+  }
+
+  .stage__info {
+    width: var(--info-width);
+    padding-top: 8px;
+  }
+
+  .info-text {
+    line-height: 1.95;
+  }
+}
+
 @media (max-width: 767px) {
   :root {
     --page-pad-x: 18px;

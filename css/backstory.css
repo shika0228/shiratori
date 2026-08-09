@@ -665,6 +665,75 @@ body {
     }
 }
 
+@media screen and (min-width: 768px) and (max-width: 1100px) and (orientation: portrait) {
+    :root {
+        --page-pad-x: clamp(28px, 4vw, 44px);
+        --page-pad-y: clamp(24px, 3vh, 36px);
+        --menu-scale: 0.72;
+        --back-font-size: 15px;
+        --back-line-width: 100px;
+        --hamburger-size: 48px;
+    }
+
+    .main {
+        min-height: 100svh;
+        padding-top: calc(max(env(safe-area-inset-top), var(--page-pad-y)) + 48px);
+        padding-bottom: 72px;
+        background-size: auto 100%;
+    }
+
+    .main-title {
+        transform: translateY(-18px);
+    }
+
+    .main-title h1 {
+        font-size: clamp(54px, 8vw, 76px);
+    }
+
+    .main-subtitle p {
+        font-size: clamp(15px, 1.8vw, 18px);
+    }
+
+    .hourglass-frame {
+        width: clamp(250px, 30vw, 330px);
+    }
+
+    .btn-witch {
+        right: clamp(-132px, -13vw, -104px);
+    }
+
+    .btn-pokemon {
+        left: clamp(-124px, -12vw, -96px);
+    }
+
+    .main-text {
+        font-size: clamp(18px, 2.5vw, 26px);
+        padding: 10px 22px;
+    }
+
+    .background-story__inner {
+        width: min(100% - 88px, 760px);
+        padding: 118px 0 132px;
+        min-height: 190svh;
+    }
+
+    .background-story__copy {
+        width: min(100%, 700px);
+        gap: 22px;
+    }
+
+    .background-story__title {
+        font-size: clamp(28px, 3.2vw, 36px);
+        letter-spacing: 0.18em;
+    }
+
+    .background-story__copy p {
+        font-size: clamp(15px, 1.7vw, 17px);
+        line-height: 2;
+        letter-spacing: 0.05em;
+    }
+}
+
 @media screen and (max-width: 767px) {
     :root {
         --page-pad-x: 18px;

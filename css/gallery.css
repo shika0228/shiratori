@@ -442,6 +442,74 @@ font-weight: 400;
 }
 
 /* 横幅が768px以下になった際の指定 */
+@media screen and (min-width: 901px) and (max-width: 1100px) and (orientation: portrait) {
+  .main {
+    padding-top: 120px;
+  }
+
+  .main-title {
+    padding-bottom: 56px;
+  }
+
+  .gallery-wrapper {
+    gap: 30px;
+  }
+
+  .sort-btn {
+    width: min(760px, 86vw);
+    gap: 18px;
+  }
+
+  .sort-btn li {
+    width: calc((100% - 18px) / 2);
+    max-width: 260px;
+    font-size: 18px;
+  }
+
+  .grid {
+    width: 88%;
+  }
+
+  .item {
+    width: 33.3333%;
+    padding: 9px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 900px) and (orientation: portrait) {
+  .main {
+    padding-top: 112px;
+  }
+
+  .main-title {
+    padding-bottom: 48px;
+  }
+
+  .gallery-wrapper {
+    gap: 28px;
+  }
+
+  .sort-btn {
+    width: min(640px, 86vw);
+    gap: 16px;
+  }
+
+  .sort-btn li {
+    width: calc((100% - 16px) / 2);
+    max-width: 240px;
+    font-size: 16px;
+  }
+
+  .grid {
+    width: 88%;
+  }
+
+  .item {
+    width: 50%;
+    padding: 8px;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .grid {
     width: 88%;
@@ -476,6 +544,28 @@ font-weight: 400;
   .item {
     width: 100%;
     padding: 8px 0;
+  }
+}
+
+@media screen and (min-width: 901px) and (max-width: 1100px) and (orientation: portrait) {
+  .grid {
+    width: 88%;
+  }
+
+  .item {
+    width: 33.3333% !important;
+    padding: 9px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 900px) and (orientation: portrait) {
+  .grid {
+    width: 88%;
+  }
+
+  .item {
+    width: 50% !important;
+    padding: 8px;
   }
 }
 
