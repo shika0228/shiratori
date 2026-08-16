@@ -12,9 +12,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css" />
     <link rel="stylesheet" href="./css/poke.css">
+    <script>
+        if (window.self === window.top) {
+            window.location.replace("index.html?page=" + encodeURIComponent("poketrainer.html" + window.location.hash));
+        }
+    </script>
 </head>
 
-<body>
+<body class="page-fade-in">
     <header class="site-header">
         <a href="backstory.html" class="back-home">
             <span class="decor" aria-hidden="true">
@@ -53,7 +58,7 @@
         <!---------------Profile--------------->
         <section class="profile" id="profile">
             <img class="profile-img" src="img_poketrainer/main-character.webp" alt="白鸟角色立绘">
-            <img class="profile-box" src="img_poketrainer/profile-box.webp">
+            <img class="profile-box" src="img_poketrainer/profile-box.webp" draggable="false">
             <div class="pokemon-change">
                 <h1>Pokemon Team</h1>
                 <div class="pokemon-team-wrapper">
@@ -416,6 +421,7 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js"></script>
     <script src="./js/viewport-scale.js"></script>
+    <script src="./js/frame-router.js"></script>
     <script src="./js/poke.js" defer></script>
 </body>
 

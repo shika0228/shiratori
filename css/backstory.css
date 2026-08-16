@@ -37,6 +37,74 @@ body {
     background-color: #000;
 }
 
+body.page-fade-in {
+    position: relative;
+}
+
+body.page-fade-in .hourglass-wrapper {
+    animation: hourglassEnter 1.55s cubic-bezier(0.19, 1, 0.22, 1) backwards;
+}
+
+body.page-fade-in .hourglass-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: -18% -56%;
+    z-index: 6;
+    pointer-events: none;
+    background: radial-gradient(
+        ellipse at 50% 46%,
+        rgba(255, 255, 255, 0.24) 0%,
+        rgba(255, 255, 255, 0.12) 34%,
+        rgba(255, 255, 255, 0) 72%
+    );
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 0%, #000 52%, transparent 78%);
+    mask-image: radial-gradient(ellipse at center, #000 0%, #000 52%, transparent 78%);
+    animation: hourglassVeilOut 1.65s cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+
+@keyframes hourglassEnter {
+    from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.975);
+    }
+
+    42% {
+        opacity: 0.72;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes hourglassVeilOut {
+    from {
+        opacity: 0.86;
+        transform: translateY(0);
+    }
+
+    48% {
+        opacity: 0.5;
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-22px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.page-fade-in .hourglass-wrapper {
+        animation: none;
+        transform: none;
+    }
+
+    body.page-fade-in .hourglass-wrapper::before {
+        display: none;
+    }
+}
+
 .site-header,
 .main {
     position: relative;
@@ -276,6 +344,7 @@ body {
     justify-content: center;
     position: relative;
     width: fit-content;
+    isolation: isolate;
 }
 
 .hourglass-frame {
