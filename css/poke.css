@@ -1009,7 +1009,7 @@ body.page-fade-in::before {
 #gallery-hisui {
     margin:0 auto;
     width: 80%;
-    columns: 3;
+    columns: 4;
     /*段組みの数*/
     padding: 0 36px;
     /*ギャラリー左右に余白をつける*/
