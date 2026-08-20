@@ -1,13 +1,13 @@
 window.addEventListener("load", function () {
   if (window.self !== window.top && window.location.pathname.endsWith("/index.html")) {
-    window.location.replace("home.html");
+    window.top.location.href = new URL("index.html", window.location.href).href;
     return;
   }
 
   if (document.body.classList.contains("shell-opening")) {
     setTimeout(function () {
       document.body.classList.remove("shell-opening");
-    }, 2000);
+    }, 1350);
   }
 
   const opening = document.getElementById("opening");
@@ -16,7 +16,7 @@ window.addEventListener("load", function () {
     // CSS动画结束后移除开屏层，避免它残留在页面上影响点击
     setTimeout(function () {
       opening.remove();
-    }, 2850);
+    }, 2900);
   }
 
   const musicButton = document.getElementById("music-btn");
@@ -130,14 +130,15 @@ window.addEventListener("load", function () {
     playActiveAudio();
   });
 
+  const homeView = document.getElementById("home-view");
   const mainFrame = document.getElementById("site-frame");
   const pokeFrame = document.getElementById("poke-frame");
 
-  if (!mainFrame || !pokeFrame) return;
+  if (!homeView || !mainFrame || !pokeFrame) return;
 
-  let currentMainTarget = mainFrame.getAttribute("src") || "home.html";
+  let currentMainTarget = "";
   let currentPokeTarget = "";
-  let activeTarget = currentMainTarget;
+  let activeTarget = "home.html";
 
   const shellPages = new Set([
     "home.html",
@@ -175,17 +176,28 @@ window.addEventListener("load", function () {
     return getFramePageName(target) === "poketrainer.html";
   }
 
+  function isHomeTarget(target) {
+    return getFramePageName(target) === "home.html";
+  }
+
   function setFrameTarget(frame, target) {
     if (frame.getAttribute("src") === target) return;
     frame.src = target;
   }
 
-  function setActiveFrame(usePokeFrame) {
-    mainFrame.classList.toggle("is-active", !usePokeFrame);
+  function setActivePane(target) {
+    const useHomeView = isHomeTarget(target);
+    const usePokeFrame = isPokeTarget(target);
+    const useMainFrame = !useHomeView && !usePokeFrame;
+
+    homeView.classList.toggle("is-active", useHomeView);
+    mainFrame.classList.toggle("is-active", useMainFrame);
     pokeFrame.classList.toggle("is-active", usePokeFrame);
-    mainFrame.hidden = usePokeFrame;
+    homeView.hidden = !useHomeView;
+    mainFrame.hidden = !useMainFrame;
     pokeFrame.hidden = !usePokeFrame;
-    mainFrame.style.display = usePokeFrame ? "none" : "block";
+    homeView.style.display = useHomeView ? "block" : "none";
+    mainFrame.style.display = useMainFrame ? "block" : "none";
     pokeFrame.style.display = usePokeFrame ? "block" : "none";
   }
 
@@ -223,10 +235,13 @@ window.addEventListener("load", function () {
     const target = getFrameTarget(rawTarget);
     if (!target) return;
 
+    const useHomeView = isHomeTarget(target);
     const usePokeFrame = isPokeTarget(target);
     activeTarget = target;
 
-    if (usePokeFrame) {
+    if (useHomeView) {
+      currentMainTarget = "";
+    } else if (usePokeFrame) {
       currentPokeTarget = target;
       setFrameTarget(pokeFrame, target);
     } else {
@@ -234,9 +249,11 @@ window.addEventListener("load", function () {
       setFrameTarget(mainFrame, target);
     }
 
-    setActiveFrame(usePokeFrame);
+    setActivePane(target);
     updateShellForActiveTarget();
-    restartFrameFade(usePokeFrame ? pokeFrame : mainFrame, target);
+    if (!useHomeView) {
+      restartFrameFade(usePokeFrame ? pokeFrame : mainFrame, target);
+    }
 
     if (!options || options.syncUrl !== false) {
       syncShellUrl(target);
@@ -313,6 +330,20 @@ window.addEventListener("load", function () {
     bindFrameLinks(frame);
   }
 
+  function bindHomeLinks() {
+    homeView.addEventListener("click", function (event) {
+      const link = event.target.closest("a[href]");
+
+      if (!link || link.target === "_blank" || link.hasAttribute("download")) return;
+
+      const target = getFrameTarget(link.getAttribute("href"));
+      if (!target) return;
+
+      event.preventDefault();
+      activateTarget(target);
+    }, true);
+  }
+
   window.addEventListener("message", function (event) {
     if (event.source !== mainFrame.contentWindow && event.source !== pokeFrame.contentWindow) return;
     if (!event.data || event.data.type !== "shiratori:navigate") return;
@@ -328,6 +359,7 @@ window.addEventListener("load", function () {
   });
 
   const requestedFrameTarget = getFrameTarget(new URLSearchParams(window.location.search).get("page"));
-  activateTarget(requestedFrameTarget || currentMainTarget, { syncUrl: false });
+  bindHomeLinks();
+  activateTarget(requestedFrameTarget || "home.html", { syncUrl: false });
   bindFrameLinks(mainFrame);
 });

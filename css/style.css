@@ -22,6 +22,30 @@ body.site-shell{
   overflow:hidden;
   background:#000;
 }
+.site-home{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  display:none;
+  overflow:hidden;
+  background:#000;
+  opacity:1;
+  transform:translateY(0) scale(1);
+  transition:
+    opacity 1.25s ease,
+    transform 1.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.site-home.is-active{
+  display:block;
+}
+.site-home[hidden]{
+  display:none !important;
+}
+body.shell-opening .site-home{
+  opacity:0.78;
+  transform:translateY(4px) scale(1.006);
+}
 .site-frame{
   position:fixed;
   inset:0;
@@ -30,6 +54,13 @@ body.site-shell{
   border:0;
   display:none;
   background:#000;
+  opacity:1;
+  transform:translateY(0) scale(1);
+  filter:none;
+  transition:
+    opacity 1.35s ease,
+    transform 1.65s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 1.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .site-frame.is-active{
   display:block;
@@ -39,6 +70,11 @@ body.site-shell{
 }
 .site-frame.is-entering{
   animation: shellFrameFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+body.shell-opening .site-frame{
+  opacity:0.56;
+  filter:blur(9px) brightness(1.12) saturate(0.9);
+  transform:translateY(10px) scale(1.018);
 }
 body.shell-gallery .site-frame.is-entering{
   animation: galleryFrameEnter 0.76s cubic-bezier(0.16, 1, 0.3, 1) backwards;
@@ -272,7 +308,7 @@ body.shell-poketrainer .music-btn-img{
 }
 
 /* ================================
-   Opening Curtain Animation
+   Opening Logo Animation
 ================================ */
 .opening {
   position: fixed;
@@ -282,171 +318,114 @@ body.shell-poketrainer .music-btn-img{
   height: 100vh;
   overflow: hidden;
   pointer-events: none;
-  background: rgba(0, 3, 10, 0.58);
-  animation:
-    openingBaseLift 2.08s cubic-bezier(.55, 0, .24, 1) forwards,
-    openingFadeOut 0.58s ease forwards;
-  animation-delay: 0s, 2.1s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    radial-gradient(ellipse at 50% 43%, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0.2) 42%, rgba(255, 255, 255, 0) 72%),
+    linear-gradient(180deg, rgba(245, 253, 255, 0.6), rgba(228, 244, 250, 0.42));
+  backdrop-filter:blur(3px);
+  -webkit-backdrop-filter:blur(3px);
+  animation: openingLogoLayerOut 1.18s cubic-bezier(0.16, 1, 0.3, 1) 1.62s forwards;
+}
+
+.opening::before,
+.opening::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
 }
 
 .opening::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
   background:
-    radial-gradient(ellipse at 50% 48%, rgba(24, 63, 92, 0.18), rgba(0, 2, 8, 0) 44%),
-    linear-gradient(180deg, rgba(0, 3, 10, 0.42) 0%, rgba(0, 1, 6, 0.72) 100%);
-  opacity: 0.94;
-  animation: openingShadeLift 2.08s cubic-bezier(.55, 0, .24, 1) forwards;
+    radial-gradient(ellipse at 50% 48%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 38%),
+    radial-gradient(ellipse at 50% 58%, rgba(127, 225, 241, 0.12), rgba(127, 225, 241, 0) 50%);
+  opacity:0;
+  transform:translateY(18px) scale(0.96);
+  animation: openingGlowBloom 2.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* 左右幕布 */
-.curtain {
-  position: absolute;
-  top: 0;
-  z-index: 2;
-  width: 53%;
-  height: 100%;
-  background-image:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.018) 0%, rgba(33, 88, 126, 0) 24%, rgba(7, 25, 47, 0.025) 100%),
-    radial-gradient(ellipse at 50% 4%, rgba(200, 235, 248, 0.035) 0%, rgba(200, 235, 248, 0) 50%),
-    linear-gradient(90deg, rgba(8, 28, 52, 0.02), rgba(255, 255, 255, 0) 18%, rgba(255, 255, 255, 0) 82%, rgba(8, 28, 52, 0.02)),
-    url('../img/opening-curtain-texture.png');
-  background-size:
-    100% 100%,
-    100% 100%,
-    100% 100%,
-    118% 100%;
-  background-position:
-    center,
-    center,
-    center,
-    center top;
-  background-repeat: no-repeat;
-  box-shadow:
-    inset 0 0 14px rgba(4, 22, 47, 0.06),
-    inset 0 -28px 40px rgba(3, 19, 42, 0.07),
-    inset 0 18px 28px rgba(196, 230, 242, 0.045);
-  transform: translateX(0);
-  animation-duration: 2.06s;
-  animation-delay: 0.1s;
-  animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(.76, 0, .18, 1);
-}
-
-/* 顶部幕布厚度 */
-.curtain::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+.opening::after {
   background:
-    linear-gradient(180deg, rgba(216, 239, 247, 0.055) 0%, rgba(216, 239, 247, 0) 15%),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0) 18%, rgba(0, 0, 0, 0.06) 72%, rgba(255, 255, 255, 0.03));
-  mix-blend-mode: soft-light;
-  opacity: 0.46;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0)),
+    radial-gradient(ellipse at 50% 42%, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0) 54%);
+  opacity:0;
+  animation: openingMistLift 2.65s ease-out forwards;
 }
 
-/* 幕布中央合缝阴影 */
-.curtain::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 22px;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    rgba(18, 58, 91, 0.1),
-    rgba(112, 184, 216, 0.12),
-    rgba(255, 255, 255, 0.04),
-    rgba(0, 0, 0, 0)
-  );
-  opacity: 0.42;
+.opening-logo {
+  position:relative;
+  z-index:1;
+  width:clamp(150px, 18vw, 300px);
+  height:auto;
+  display:block;
+  opacity:0;
+  transform:translate3d(0, 8px, 0) scale(0.96);
+  animation: openingLogoFloat 2.34s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change:opacity, transform;
 }
 
-.curtain-left {
-  left: 0;
-  transform-origin: left center;
-  animation-name: curtainOpenLeft;
-}
-
-.curtain-right {
-  right: 0;
-  transform-origin: right center;
-  animation-name: curtainOpenRight;
-  background-position:
-    center,
-    center,
-    center,
-    right top;
-}
-
-.curtain-left::after {
-  right: 0;
-}
-
-.curtain-right::after {
-  left: 0;
-  transform: scaleX(-1);
-}
-
-@keyframes curtainOpenLeft {
+@keyframes openingLogoFloat {
   0% {
-    transform: translateX(0);
+    opacity:0;
+    transform:translate3d(0, 8px, 0) scale(0.96);
+  }
+  38% {
+    opacity:1;
+    transform:translate3d(0, 0, 0) scale(1);
+  }
+  76% {
+    opacity:1;
+    transform:translate3d(0, 0, 0) scale(1);
   }
   100% {
-    transform: translateX(-150%);
+    opacity:0;
+    transform:translate3d(0, 0, 0) scale(1.018);
   }
 }
 
-@keyframes curtainOpenRight {
+@keyframes openingGlowBloom {
   0% {
-    transform: translateX(0);
+    opacity:0;
+    transform:translateY(18px) scale(0.96);
+  }
+  34% {
+    opacity:1;
+    transform:translateY(0) scale(1);
   }
   100% {
-    transform: translateX(150%);
+    opacity:0;
+    transform:translateY(-6px) scale(1.08);
   }
 }
 
-@keyframes openingBaseLift {
+@keyframes openingMistLift {
   0% {
-    background: rgba(0, 3, 10, 0.58);
+    opacity:0;
+    transform:translateY(18px);
   }
-  45% {
-    background: rgba(0, 3, 10, 0.42);
+  28% {
+    opacity:0.55;
   }
   100% {
-    background: rgba(0, 3, 10, 0.18);
+    opacity:0;
+    transform:translateY(-8px);
   }
 }
 
-@keyframes openingShadeLift {
+@keyframes openingLogoLayerOut {
   0% {
-    opacity: 0.94;
-  }
-  42% {
-    opacity: 0.62;
-  }
-  100% {
-    opacity: 0.18;
-  }
-}
-
-@keyframes openingFadeOut {
-  0% {
-    opacity: 1;
-    visibility: visible;
+    opacity:1;
+    visibility:visible;
   }
   99% {
-    opacity: 0;
-    visibility: visible;
+    opacity:0;
+    visibility:visible;
   }
   100% {
-    opacity: 0;
-    visibility: hidden;
+    opacity:0;
+    visibility:hidden;
   }
 }
 
@@ -472,15 +451,6 @@ body.shell-poketrainer .music-btn-img{
 }
 /*--------------------------------------------------------*/
 @media screen and (max-width: 800px) {
-  .curtain {
-    width: 56%;
-    background-size:
-      100% 100%,
-      100% 100%,
-      100% 100%,
-      auto 100%;
-  }
-
   .menu-wrap{
     bottom:5vh;
     top:unset;

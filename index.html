@@ -12,7 +12,29 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body class="site-shell shell-opening">
-  <iframe class="site-frame site-frame-main is-active" id="site-frame" src="home.html" title="白鸟网站内容"></iframe>
+  <div class="opening" id="opening" aria-hidden="true">
+    <img class="opening-logo" src="img/logo.webp" alt="">
+  </div>
+
+  <div class="site-home is-active" id="home-view" data-page="home.html">
+    <div class="video-box" id="video-box">
+      <video src="./video/main.mp4" autoplay muted loop playsinline></video>
+    </div>
+    <div class="button-box" id="button-box">
+      <a class="link-btn" href="https://www.xiaohongshu.com/user/profile/67a57668000000000a03e5e7?shareRedId=ODY5OTw1Ok02NzUyOTgwNjY0OThHOjZC&apptime=1777205097&share_id=45446a59381a41478aac047fc4eb57e6&xsec_source=app_share&xsec_token=YBa5D0_uv5yEfA_MQ0UcwC9cwyVWfalGCerOsbQ_33QX8%3D&xhsshare=CopyLink" target="_blank">
+        <img class="link-btn-img" src="img/link-btn.png" alt="">
+      </a>
+      <span class="music-btn music-btn-placeholder" aria-hidden="true"></span>
+    </div>
+    <div class="menu-wrap">
+      <a href="index.html" class="menu-button" id="menu-button-1"></a>
+      <a href="character.html" class="menu-button" id="menu-button-2"></a>
+      <a href="backstory.html" class="menu-button" id="menu-button-3"></a>
+      <a href="gallery.html" class="menu-button" id="menu-button-4"></a>
+    </div>
+  </div>
+
+  <iframe class="site-frame site-frame-main" id="site-frame" src="about:blank" title="白鸟网站内容" hidden></iframe>
   <iframe class="site-frame site-frame-poke" id="poke-frame" src="about:blank" title="宝可梦训练家内容" hidden></iframe>
 
   <button class="music-btn global-music-btn" id="music-btn" type="button" aria-label="播放音乐" aria-pressed="false" data-audio-src="./main-bgm.mp3" data-main-audio-src="./main-bgm.mp3" data-poke-audio-src="./poke-bgm.mp3">
