@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<!-- saved from url=(0054)https://shika0228.github.io/shiratori/poketrainer.html -->
-<html lang="CN" style="--desktop-scale: 1;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="CN">
+
+<head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>白鸟</title>
-    <link rel="icon" href="https://shika0228.github.io/shiratori/icon.ico?v=1" type="image/x-icon">
-    <link rel="shortcut icon" href="https://shika0228.github.io/shiratori/icon.ico?v=1" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-    <link href="./css2" rel="stylesheet">
-    <link rel="stylesheet" href="./lightbox.min.css">
-    <link rel="stylesheet" href="./poke.css">
+    <link rel="icon" href="icon.ico?v=1" type="image/x-icon">
+    <link rel="shortcut icon" href="icon.ico?v=1" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css" />
+    <link rel="stylesheet" href="./css/poke.css">
     <script>
         if (window.self === window.top) {
             window.location.replace("index.html?page=" + encodeURIComponent("poketrainer.html" + window.location.hash));
@@ -20,7 +21,7 @@
 
 <body class="page-fade-in">
     <header class="site-header">
-        <a href="https://shika0228.github.io/shiratori/backstory.html" class="back-home">
+        <a href="backstory.html" class="back-home">
             <span class="decor" aria-hidden="true">
                 <i class="dot"></i>
                 <i class="line"></i>
@@ -36,89 +37,91 @@
         <div class="menu-backdrop" id="menu-backdrop" aria-hidden="true"></div>
 
         <div class="menu-wrap" id="menu">
-            <a href="https://shika0228.github.io/shiratori/index.html" class="menu-button" id="menu-button-1"></a>
-            <a href="https://shika0228.github.io/shiratori/character.html" class="menu-button" id="menu-button-2"></a>
-            <a href="https://shika0228.github.io/shiratori/backstory.html" class="menu-button" id="menu-button-3"></a>
-            <a href="https://shika0228.github.io/shiratori/gallery.html" class="menu-button" id="menu-button-4"></a>
+            <a href="index.html" class="menu-button" id="menu-button-1"></a>
+            <a href="character.html" class="menu-button" id="menu-button-2"></a>
+            <a href="backstory.html" class="menu-button" id="menu-button-3"></a>
+            <a href="gallery.html" class="menu-button" id="menu-button-4"></a>
         </div>
     </header>
 
     <main>
         <section class="top-bar-wrapper">
-            <img class="top-logo" src="./top-logo.webp" alt="白鸟 logo">
-            <nav class="section-nav is-fixed" aria-label="页面内导航">
-                <a href="https://shika0228.github.io/shiratori/poketrainer.html#profile" class="section-nav__item">角色介绍</a>
-                <a href="https://shika0228.github.io/shiratori/poketrainer.html#costume" class="section-nav__item">服设展示</a>
-                <a href="https://shika0228.github.io/shiratori/poketrainer.html#background" class="section-nav__item">故事背景</a>
-                <a href="https://shika0228.github.io/shiratori/poketrainer.html#gallery" class="section-nav__item">插画展示</a>
-                <a href="https://shika0228.github.io/shiratori/poketrainer.html#hisui" class="section-nav__item">洗翠专区</a>
+            <img class="top-logo" src="img_poketrainer/top-logo.webp" alt="白鸟 logo">
+            <nav class="section-nav" aria-label="页面内导航">
+                <a href="#profile" class="section-nav__item">角色介绍</a>
+                <a href="#costume" class="section-nav__item">服设展示</a>
+                <a href="#background" class="section-nav__item">故事背景</a>
+                <a href="#gallery" class="section-nav__item">插画展示</a>
+                <a href="#hisui" class="section-nav__item">洗翠专区</a>
             </nav>
         </section>
         <!---------------Profile--------------->
         <section class="profile" id="profile">
-            <img class="profile-img is-visible" src="./main-character.webp" alt="白鸟角色立绘">
-            <img class="profile-box" src="./profile-box.webp" draggable="false">
+            <img class="profile-img" src="img_poketrainer/main-character.webp" alt="白鸟角色立绘">
+            <img class="profile-box" src="img_poketrainer/profile-box.webp" draggable="false">
             <div class="pokemon-change">
                 <h1>Pokemon Team</h1>
                 <div class="pokemon-team-wrapper">
-                    <img id="pokemon-team-image" src="./pokemon_1.webp" alt="宝可梦 1">
+                    <img id="pokemon-team-image" src="img_poketrainer/pokemon_1.webp" alt="宝可梦 1">
                 </div>
                 <div class="pokemon-ball-wrapper">
-                    <button class="ball-btn is-active" id="ball-btn-1" data-pokemon="1" type="button" aria-label="显示宝可梦 1">
-                        <img src="./ball_1.webp" alt="宝可梦球 1">
+                    <button class="ball-btn is-active" id="ball-btn-1" data-pokemon="1" type="button"
+                        aria-label="显示宝可梦 1">
+                        <img src="img_poketrainer/ball_1.webp" alt="宝可梦球 1">
                     </button>
                     <button class="ball-btn" id="ball-btn-2" data-pokemon="2" type="button" aria-label="显示宝可梦 2">
-                        <img src="./ball_2.webp" alt="宝可梦球 2">
+                        <img src="img_poketrainer/ball_2.webp" alt="宝可梦球 2">
                     </button>
                     <button class="ball-btn" id="ball-btn-3" data-pokemon="3" type="button" aria-label="显示宝可梦 3">
-                        <img src="./ball_3.webp" alt="宝可梦球 3">
+                        <img src="img_poketrainer/ball_3.webp" alt="宝可梦球 3">
                     </button>
                     <button class="ball-btn" id="ball-btn-4" data-pokemon="4" type="button" aria-label="显示宝可梦 4">
-                        <img src="./ball_4.webp" alt="宝可梦球 4">
+                        <img src="img_poketrainer/ball_4.webp" alt="宝可梦球 4">
                     </button>
                     <button class="ball-btn" id="ball-btn-5" data-pokemon="5" type="button" aria-label="显示宝可梦 5">
-                        <img src="./ball_1.webp" alt="宝可梦球 5">
+                        <img src="img_poketrainer/ball_1.webp" alt="宝可梦球 5">
                     </button>
                     <button class="ball-btn" id="ball-btn-6" data-pokemon="6" type="button" aria-label="显示宝可梦 6">
-                        <img src="./ball_1.webp" alt="宝可梦球 6">
+                        <img src="img_poketrainer/ball_1.webp" alt="宝可梦球 6">
                     </button>
                 </div>
-                <p class="pokemon-ball-sign">尝试点击精灵球吧!</p>
             </div>
         </section>
 
         <!---------------Costume--------------->
         <section class="costume" id="costume">
-            <img class="costume-title" src="./costume.svg">
+            <img class="costume-title" src="img_poketrainer/costume.svg">
             <div class="costume-bg" aria-hidden="true">
-                <img class="costume-bg-img" src="./costume-bg.webp" alt="">
-                <img class="costume-bg-img-sp" src="./costume-bg-sp.webp">
+                <img class="costume-bg-img" src="img_poketrainer/costume-bg.webp" alt="">
+                <img class="costume-bg-img-sp" src="img_poketrainer/costume-bg-sp.webp">
             </div>
             <div class="costume-inner">
-                <div class="costume-carousel" data-costume-carousel="" style="--center-scale: 1.45; --near-scale: 0.9; --far-scale: 0.78; --offset-near: 357.0458333333333px; --offset-far: 617.155px; --offset-hidden: 841.0604999999999px;">
+                <div class="costume-carousel" data-costume-carousel>
                     <div class="costume-carousel__viewport" aria-label="服设图片轮播">
-                        <button class="costume-carousel__nav costume-carousel__nav--prev" type="button" aria-label="上一张服设图">
+                        <button class="costume-carousel__nav costume-carousel__nav--prev" type="button"
+                            aria-label="上一张服设图">
                             <span aria-hidden="true"></span>
                         </button>
 
-                        <div class="costume-carousel__stage" id="costume-carousel-stage"><figure class="costume-card is-hidden-left" data-index="0" aria-hidden="true"><img src="./costume_1.webp" alt="服设展示 1" loading="eager" decoding="async"></figure><figure class="costume-card is-hidden-left" data-index="1" aria-hidden="true"><img src="./costume_2.webp" alt="服设展示 2" loading="eager" decoding="async"></figure><figure class="costume-card is-left-2" data-index="2" aria-hidden="true"><img src="./costume_3.webp" alt="服设展示 3" loading="eager" decoding="async"></figure><figure class="costume-card is-left-1" data-index="3" aria-hidden="true"><img src="./costume_4.webp" alt="服设展示 4" loading="eager" decoding="async"></figure><figure class="costume-card is-center" data-index="4" aria-hidden="false"><img src="./costume_5.webp" alt="服设展示 5" loading="lazy" decoding="async"></figure><figure class="costume-card is-right-1" data-index="5" aria-hidden="true"><img src="./costume_6.webp" alt="服设展示 6" loading="lazy" decoding="async"></figure><figure class="costume-card is-right-2" data-index="6" aria-hidden="true"><img src="./costume_7.webp" alt="服设展示 7" loading="lazy" decoding="async"></figure><figure class="costume-card is-hidden-right" data-index="7" aria-hidden="true"><img src="./costume_8.webp" alt="服设展示 8" loading="lazy" decoding="async"></figure></div>
+                        <div class="costume-carousel__stage" id="costume-carousel-stage"></div>
 
-                        <button class="costume-carousel__nav costume-carousel__nav--next" type="button" aria-label="下一张服设图">
+                        <button class="costume-carousel__nav costume-carousel__nav--next" type="button"
+                            aria-label="下一张服设图">
                             <span aria-hidden="true"></span>
                         </button>
                     </div>
-                    <p class="costume-carousel__status sr-only" aria-live="polite">当前展示第 5 张，共 8 张。</p>
+                    <p class="costume-carousel__status sr-only" aria-live="polite"></p>
                 </div>
             </div>
         </section>
         <!---------------Background--------------->
-        <section class="background" id="background"><svg class="background-storyline" aria-hidden="true" focusable="false" viewBox="0 0 1470 2121.125" width="1470" height="2121.125"><path class="background-storyline__path" d="M 735.00 136.16 C 691.26 180.31, 330.32 386.34, 370.56 504.05 C 410.80 621.75, 1070.34 968.92, 1070.34 1117.06 C 1070.34 1265.19, 410.80 1628.58, 370.56 1738.51 C 330.32 1848.44, 691.27 1997.77, 735.00 2033.13"></path></svg>
-            <img class="background-title" src="./background.svg">
+        <section class="background" id="background">
+            <img class="background-title" src="img_poketrainer/background.svg">
             <div class="background-stories">
                 <div class="story-wrapper">
-                    <img class="story-img" src="./story-1.webp" draggable="false">
+                    <img class="story-img" src="img_poketrainer/story-1.webp" draggable="false">
                     <div class="story-text-wrapper">
-                        <img class="story-title" src="./story-1-title.svg" draggable="false">
+                        <img class="story-title" src="img_poketrainer/story-1-title.svg" draggable="false">
                         <p class="story-text">
                             在奥多马雷曲折的水道与古老街巷间，莽莽撞撞的少女总是跑得比思绪更<br>
                             快，仿佛随时会踏入不可预知的危险，注意到这点的拉帝欧斯，就这样在<br>
@@ -134,9 +137,9 @@
                     </div>
                 </div>
                 <div class="story-wrapper story-reverse">
-                    <img class="story-img img-wide" src="./story-2.webp" draggable="false">
+                    <img class="story-img img-wide" src="img_poketrainer/story-2.webp" draggable="false">
                     <div class="story-text-wrapper story-text-wrapper-wide">
-                        <img class="story-title" src="./story-2-title.svg" draggable="false">
+                        <img class="story-title" src="img_poketrainer/story-2-title.svg" draggable="false">
                         <p class="story-text">
                             “别担心，我会送你回家的。”<br>
                             在异乡的夕阳下，白发蓝瞳的少女被一位老人认错成孙女雪莉。她没有说破，<br>
@@ -151,9 +154,9 @@
                     </div>
                 </div>
                 <div class="story-wrapper">
-                    <img class="story-img" src="./story-3.webp" draggable="false">
+                    <img class="story-img" src="img_poketrainer/story-3.webp" draggable="false">
                     <div class="story-text-wrapper">
-                        <img class="story-title" src="./story-3-title.svg" draggable="false">
+                        <img class="story-title" src="img_poketrainer/story-3-title.svg" draggable="false">
                         <p class="story-text">
                             白鸟和她的伙伴们正在更衣室试穿这次大赛的表演服。<br>
                             缎带系好，裙摆轻旋，镜中的身影流光溢彩——一切都已经准<br>
@@ -173,159 +176,240 @@
                     </p>
                 </div>
             </div>
-        <img class="background-storyline__orb" src="./story-orb.svg" alt="" aria-hidden="true" style="left: 735px; top: 136.16px;"></section>
+        </section>
         <!---------------Gallery--------------->
         <section class="gallery" id="gallery">
-            <img class="gallery-title" src="./gallery-title.svg">
+            <img class="gallery-title" src="img_poketrainer/gallery-title.svg">
             <div class="gallery-pic-wrapper">
                 <ul class="gallery-contents">
-                    <li><a href="./poke_1.webp" data-lightbox="gallery1"><img src="./poke_1.webp"></a></li>
-                    <li><a href="./poke_2.webp" data-lightbox="gallery1"><img src="./poke_2.webp"></a></li>
-                    <li><a href="./poke_3.webp" data-lightbox="gallery1"><img src="./poke_3.webp"></a></li>
-                    <li><a href="./poke_4.webp" data-lightbox="gallery1"><img src="./poke_4.webp"></a></li>
-                    <li><a href="./poke_5.webp" data-lightbox="gallery1"><img src="./poke_5.webp"></a></li>
-                    <li><a href="./poke_6.webp" data-lightbox="gallery1"><img src="./poke_6.webp"></a></li>
-                    <li><a href="./poke_7.webp" data-lightbox="gallery1"><img src="./poke_7.webp"></a></li>
-                    <li><a href="./poke_8.webp" data-lightbox="gallery1"><img src="./poke_8.webp"></a></li>
-                    <li><a href="./poke_9.webp" data-lightbox="gallery1"><img src="./poke_9.webp"></a></li>
-                    <li><a href="./poke_10.webp" data-lightbox="gallery1"><img src="./poke_10.webp"></a></li>
-                    <li><a href="./poke_11.webp" data-lightbox="gallery1"><img src="./poke_11.webp"></a></li>
-                    <li><a href="./poke_12.webp" data-lightbox="gallery1"><img src="./poke_12.webp"></a></li>
-                    <li><a href="./poke_13.webp" data-lightbox="gallery1"><img src="./poke_13.webp"></a></li>
-                    <li><a href="./poke_14.webp" data-lightbox="gallery1"><img src="./poke_14.webp"></a></li>
-                    <li><a href="./poke_15.webp" data-lightbox="gallery1"><img src="./poke_15.webp"></a></li>
-                    <li><a href="./poke_16.webp" data-lightbox="gallery1"><img src="./poke_16.webp"></a></li>
-                    <li><a href="./poke_17.webp" data-lightbox="gallery1"><img src="./poke_17.webp"></a></li>
-                    <li><a href="./poke_18.webp" data-lightbox="gallery1"><img src="./poke_18.webp"></a></li>
-                    <li><a href="./poke_19.webp" data-lightbox="gallery1"><img src="./poke_19.webp"></a></li>
-                    <li><a href="./poke_20.webp" data-lightbox="gallery1"><img src="./poke_20.webp"></a></li>
-                    <li><a href="./poke_21.webp" data-lightbox="gallery1"><img src="./poke_21.webp"></a></li>
-                    <li><a href="./poke_22.webp" data-lightbox="gallery1"><img src="./poke_22.webp"></a></li>
-                    <li><a href="./poke_23.webp" data-lightbox="gallery1"><img src="./poke_23.webp"></a></li>
-                    <li><a href="./poke_24.webp" data-lightbox="gallery1"><img src="./poke_24.webp"></a></li>
-                    <li><a href="./poke_25.webp" data-lightbox="gallery1"><img src="./poke_25.webp"></a></li>
-                    <li><a href="./poke_26.webp" data-lightbox="gallery1"><img src="./poke_26.webp"></a></li>
-                    <li><a href="./poke_27.webp" data-lightbox="gallery1"><img src="./poke_27.webp"></a></li>
-                    <li><a href="./poke_28.webp" data-lightbox="gallery1"><img src="./poke_28.webp"></a></li>
-                    <li><a href="./poke_29.webp" data-lightbox="gallery1"><img src="./poke_29.webp"></a></li>
-                    <li><a href="./poke_30.webp" data-lightbox="gallery1"><img src="./poke_30.webp"></a></li>
-                    <li><a href="./poke_31.webp" data-lightbox="gallery1"><img src="./poke_31.webp"></a></li>
-                    <li><a href="./poke_32.webp" data-lightbox="gallery1"><img src="./poke_32.webp"></a></li>
-                    <li><a href="./poke_33.webp" data-lightbox="gallery1"><img src="./poke_33.webp"></a></li>
-                    <li><a href="./poke_34.webp" data-lightbox="gallery1"><img src="./poke_34.webp"></a></li>
-                    <li><a href="./poke_35.webp" data-lightbox="gallery1"><img src="./poke_35.webp"></a></li>
-                    <li><a href="./poke_36.webp" data-lightbox="gallery1"><img src="./poke_36.webp"></a></li>
-                    <li><a href="./poke_37.webp" data-lightbox="gallery1"><img src="./poke_37.webp"></a></li>
-                    <li><a href="./poke_38.webp" data-lightbox="gallery1"><img src="./poke_38.webp"></a></li>
-                    <li><a href="./poke_39.webp" data-lightbox="gallery1"><img src="./poke_39.webp"></a></li>
-                    <li><a href="./poke_40.webp" data-lightbox="gallery1"><img src="./poke_40.webp"></a></li>
-                    <li><a href="./poke_41.webp" data-lightbox="gallery1"><img src="./poke_41.webp"></a></li>
-                    <li><a href="./poke_42.webp" data-lightbox="gallery1"><img src="./poke_42.webp"></a></li>
-                    <li><a href="./poke_43.webp" data-lightbox="gallery1"><img src="./poke_43.webp"></a></li>
-                    <li><a href="./poke_44.webp" data-lightbox="gallery1"><img src="./poke_44.webp"></a></li>
-                    <li><a href="./poke_45.webp" data-lightbox="gallery1"><img src="./poke_45.webp"></a></li>
-                    <li><a href="./poke_46.webp" data-lightbox="gallery1"><img src="./poke_46.webp"></a></li>
-                    <li><a href="./poke_47.webp" data-lightbox="gallery1"><img src="./poke_47.webp"></a></li>
-                    <li><a href="./poke_48.webp" data-lightbox="gallery1"><img src="./poke_48.webp"></a></li>
-                    <li><a href="./poke_49.webp" data-lightbox="gallery1"><img src="./poke_49.webp"></a></li>
-                    <li><a href="./poke_50.webp" data-lightbox="gallery1"><img src="./poke_50.webp"></a></li>
-                    <li><a href="./poke_51.webp" data-lightbox="gallery1"><img src="./poke_51.webp"></a></li>
-                    <li><a href="./poke_52.webp" data-lightbox="gallery1"><img src="./poke_52.webp"></a></li>
-                    <li><a href="./poke_53.webp" data-lightbox="gallery1"><img src="./poke_53.webp"></a></li>
-                    <li><a href="./poke_54.webp" data-lightbox="gallery1"><img src="./poke_54.webp"></a></li>
-                    <li><a href="./poke_55.webp" data-lightbox="gallery1"><img src="./poke_55.webp"></a></li>
-                    <li><a href="./poke_56.webp" data-lightbox="gallery1"><img src="./poke_56.webp"></a></li>
-                    <li><a href="./poke_57.webp" data-lightbox="gallery1"><img src="./poke_57.webp"></a></li>
-                    <li><a href="./poke_58.webp" data-lightbox="gallery1"><img src="./poke_58.webp"></a></li>
-                    <li><a href="./poke_59.webp" data-lightbox="gallery1"><img src="./poke_59.webp"></a></li>
-                    <li><a href="./poke_60.webp" data-lightbox="gallery1"><img src="./poke_60.webp"></a></li>
-                    <li><a href="./poke_61.webp" data-lightbox="gallery1"><img src="./poke_61.webp"></a></li>
-                    <li><a href="./poke_62.webp" data-lightbox="gallery1"><img src="./poke_62.webp"></a></li>
-                    <li><a href="./poke_63.webp" data-lightbox="gallery1"><img src="./poke_63.webp"></a></li>
-                    <li><a href="./poke_64.webp" data-lightbox="gallery1"><img src="./poke_64.webp"></a></li>
-                    <li><a href="./poke_65.webp" data-lightbox="gallery1"><img src="./poke_65.webp"></a></li>
-                    <li><a href="./poke_66.webp" data-lightbox="gallery1"><img src="./poke_66.webp"></a></li>
-                    <li><a href="./poke_67.webp" data-lightbox="gallery1"><img src="./poke_67.webp"></a></li>
-                    <li><a href="./poke_68.webp" data-lightbox="gallery1"><img src="./poke_68.webp"></a></li>
-                    <li><a href="./poke_69.webp" data-lightbox="gallery1"><img src="./poke_69.webp"></a></li>
-                    <li><a href="./poke_70.webp" data-lightbox="gallery1"><img src="./poke_70.webp"></a></li>
-                    <li><a href="./poke_71.webp" data-lightbox="gallery1"><img src="./poke_71.webp"></a></li>
-                    <li><a href="./poke_72.webp" data-lightbox="gallery1"><img src="./poke_72.webp"></a></li>
-                    <li><a href="./poke_73.webp" data-lightbox="gallery1"><img src="./poke_73.webp"></a></li>
+                    <li><a href="img_gallery/poke_1.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_1.webp"></a></li>
+                    <li><a href="img_gallery/poke_2.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_2.webp"></a></li>
+                    <li><a href="img_gallery/poke_3.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_3.webp"></a></li>
+                    <li><a href="img_gallery/poke_4.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_4.webp"></a></li>
+                    <li><a href="img_gallery/poke_5.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_5.webp"></a></li>
+                    <li><a href="img_gallery/poke_6.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_6.webp"></a></li>
+                    <li><a href="img_gallery/poke_7.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_7.webp"></a></li>
+                    <li><a href="img_gallery/poke_8.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_8.webp"></a></li>
+                    <li><a href="img_gallery/poke_9.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_9.webp"></a></li>
+                    <li><a href="img_gallery/poke_10.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_10.webp"></a></li>
+                    <li><a href="img_gallery/poke_11.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_11.webp"></a></li>
+                    <li><a href="img_gallery/poke_12.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_12.webp"></a></li>
+                    <li><a href="img_gallery/poke_13.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_13.webp"></a></li>
+                    <li><a href="img_gallery/poke_14.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_14.webp"></a></li>
+                    <li><a href="img_gallery/poke_15.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_15.webp"></a></li>
+                    <li><a href="img_gallery/poke_16.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_16.webp"></a></li>
+                    <li><a href="img_gallery/poke_17.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_17.webp"></a></li>
+                    <li><a href="img_gallery/poke_18.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_18.webp"></a></li>
+                    <li><a href="img_gallery/poke_19.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_19.webp"></a></li>
+                    <li><a href="img_gallery/poke_20.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_20.webp"></a></li>
+                    <li><a href="img_gallery/poke_21.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_21.webp"></a></li>
+                    <li><a href="img_gallery/poke_22.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_22.webp"></a></li>
+                    <li><a href="img_gallery/poke_23.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_23.webp"></a></li>
+                    <li><a href="img_gallery/poke_24.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_24.webp"></a></li>
+                    <li><a href="img_gallery/poke_25.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_25.webp"></a></li>
+                    <li><a href="img_gallery/poke_26.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_26.webp"></a></li>
+                    <li><a href="img_gallery/poke_27.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_27.webp"></a></li>
+                    <li><a href="img_gallery/poke_28.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_28.webp"></a></li>
+                    <li><a href="img_gallery/poke_29.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_29.webp"></a></li>
+                    <li><a href="img_gallery/poke_30.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_30.webp"></a></li>
+                    <li><a href="img_gallery/poke_31.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_31.webp"></a></li>
+                    <li><a href="img_gallery/poke_32.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_32.webp"></a></li>
+                    <li><a href="img_gallery/poke_33.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_33.webp"></a></li>
+                    <li><a href="img_gallery/poke_34.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_34.webp"></a></li>
+                    <li><a href="img_gallery/poke_35.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_35.webp"></a></li>
+                    <li><a href="img_gallery/poke_36.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_36.webp"></a></li>
+                    <li><a href="img_gallery/poke_37.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_37.webp"></a></li>
+                    <li><a href="img_gallery/poke_38.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_38.webp"></a></li>
+                    <li><a href="img_gallery/poke_39.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_39.webp"></a></li>
+                    <li><a href="img_gallery/poke_40.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_40.webp"></a></li>
+                    <li><a href="img_gallery/poke_41.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_41.webp"></a></li>
+                    <li><a href="img_gallery/poke_42.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_42.webp"></a></li>
+                    <li><a href="img_gallery/poke_43.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_43.webp"></a></li>
+                    <li><a href="img_gallery/poke_44.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_44.webp"></a></li>
+                    <li><a href="img_gallery/poke_45.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_45.webp"></a></li>
+                    <li><a href="img_gallery/poke_46.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_46.webp"></a></li>
+                    <li><a href="img_gallery/poke_47.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_47.webp"></a></li>
+                    <li><a href="img_gallery/poke_48.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_48.webp"></a></li>
+                    <li><a href="img_gallery/poke_49.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_49.webp"></a></li>
+                    <li><a href="img_gallery/poke_50.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_50.webp"></a></li>
+                    <li><a href="img_gallery/poke_51.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_51.webp"></a></li>
+                    <li><a href="img_gallery/poke_52.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_52.webp"></a></li>
+                    <li><a href="img_gallery/poke_53.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_53.webp"></a></li>
+                    <li><a href="img_gallery/poke_54.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_54.webp"></a></li>
+                    <li><a href="img_gallery/poke_55.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_55.webp"></a></li>
+                    <li><a href="img_gallery/poke_56.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_56.webp"></a></li>
+                    <li><a href="img_gallery/poke_57.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_57.webp"></a></li>
+                    <li><a href="img_gallery/poke_58.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_58.webp"></a></li>
+                    <li><a href="img_gallery/poke_59.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_59.webp"></a></li>
+                    <li><a href="img_gallery/poke_60.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_60.webp"></a></li>
+                    <li><a href="img_gallery/poke_61.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_61.webp"></a></li>
+                    <li><a href="img_gallery/poke_62.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_62.webp"></a></li>
+                    <li><a href="img_gallery/poke_63.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_63.webp"></a></li>
+                    <li><a href="img_gallery/poke_64.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_64.webp"></a></li>
+                    <li><a href="img_gallery/poke_65.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_65.webp"></a></li>
+                    <li><a href="img_gallery/poke_66.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_66.webp"></a></li>
+                    <li><a href="img_gallery/poke_67.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_67.webp"></a></li>
+                    <li><a href="img_gallery/poke_68.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_68.webp"></a></li>
+                    <li><a href="img_gallery/poke_69.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_69.webp"></a></li>
+                    <li><a href="img_gallery/poke_70.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_70.webp"></a></li>
+                    <li><a href="img_gallery/poke_71.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_71.webp"></a></li>
+                    <li><a href="img_gallery/poke_72.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_72.webp"></a></li>
+                    <li><a href="img_gallery/poke_73.webp" data-lightbox="gallery1"><img
+                                src="img_gallery/poke_73.webp"></a></li>
                 </ul>
             </div>
         </section>
         <!---------------Hisui--------------->
         <section class="hisui" id="hisui">
-            <img class="hisui-title" src="./hisui-title.webp">
+            <img class="hisui-title" src="img_poketrainer/hisui-title.webp">
             <div class="hisui-profile-wrapper">
                 <div class="hisui-profile-img">
-                    <img class="hisui-introduce-pic" src="./hisui-introduce-pic.webp">
+                    <img class="hisui-introduce-pic" src="img_poketrainer/hisui-introduce-pic.webp">
                 </div>
-                <img class="hisui-profile-text" src="./hisui-profile-text.svg">
-                <img class="hisui-shark" src="./shark.webp">
+                <img class="hisui-profile-text" src="img_poketrainer/hisui-profile-text.svg">
+                <img class="hisui-shark" src="img_poketrainer/shark.webp">
 
             </div>
-            <img class="hisui-deco-line" src="./hisui-deco-line.webp">
+            <img class="hisui-deco-line" src="./img_poketrainer/hisui-deco-line.webp">
             <div class="hisui-team-wrapper">
                 <div class="hisui-team-member" id="team-member-1">
                     <span class="hisui-team-label">伦琴猫</span>
                     <div class="hisui-team-frame">
-                        <img class="hisui-team" src="./hisui-team-1.webp" alt="伦琴猫">
+                        <img class="hisui-team" src="./img_poketrainer/hisui-team-1.webp" alt="伦琴猫">
                     </div>
                 </div>
                 <div class="hisui-team-member" id="team-member-2">
                     <span class="hisui-team-label">雪妖女</span>
                     <div class="hisui-team-frame">
-                        <img class="hisui-team" src="./hisui-team-2.webp" alt="雪妖女">
+                        <img class="hisui-team" src="./img_poketrainer/hisui-team-2.webp" alt="雪妖女">
                     </div>
                 </div>
                 <div class="hisui-team-member" id="team-member-3">
                     <span class="hisui-team-label">美黏龙</span>
                     <div class="hisui-team-frame">
-                        <img class="hisui-team" src="./hisui-team-3.webp" alt="美黏龙">
+                        <img class="hisui-team" src="./img_poketrainer/hisui-team-3.webp" alt="美黏龙">
                     </div>
                 </div>
                 <div class="hisui-team-member" id="team-member-4">
                     <span class="hisui-team-label">路卡利欧</span>
                     <div class="hisui-team-frame">
-                        <img class="hisui-team" src="./hisui-team-4.webp" alt="路卡利欧">
+                        <img class="hisui-team" src="./img_poketrainer/hisui-team-4.webp" alt="路卡利欧">
                     </div>
                 </div>
                 <div class="hisui-team-member" id="team-member-5">
                     <span class="hisui-team-label">烈咬陆鲨</span>
                     <div class="hisui-team-frame">
-                        <img class="hisui-team" src="./hisui-team-5.webp" alt="烈咬陆鲨">
+                        <img class="hisui-team" src="./img_poketrainer/hisui-team-5.webp" alt="烈咬陆鲨">
                     </div>
                 </div>
                 <div class="hisui-team-member" id="team-member-6">
                     <span class="hisui-team-label">沙奈朵</span>
                     <div class="hisui-team-frame">
-                        <img class="hisui-team" src="./hisui-team-6.webp" alt="沙奈朵">
+                        <img class="hisui-team" src="./img_poketrainer/hisui-team-6.webp" alt="沙奈朵">
                     </div>
                 </div>
             </div>
-            <img class="hisui-deco-line-2" src="./hisui-deco-line-2.webp">
+            <img class="hisui-deco-line-2" src="./img_poketrainer/hisui-deco-line-2.webp">
             <div class="hisui-gallery-wrapper">
                 <div class="hisui-gallery-title">
-                    <img src="./hisui-gallery-title.svg">
+                    <img src="img_poketrainer/hisui-gallery-title.svg">
                 </div>
                 <ul class="gallery-contents" id="gallery-hisui">
-                    <li><a href="./gallery-hisui-1.webp" data-lightbox="gallery1"><img src="./gallery-hisui-1.webp"></a></li>
-                    <li><a href="./gallery-hisui-2.webp" data-lightbox="gallery1"><img src="./gallery-hisui-2.webp"></a></li>
-                    <li><a href="./gallery-hisui-3.webp" data-lightbox="gallery1"><img src="./gallery-hisui-3.webp"></a></li>
-                    <li><a href="./gallery-hisui-4.webp" data-lightbox="gallery1"><img src="./gallery-hisui-4.webp"></a></li>
-                    <li><a href="./gallery-hisui-5.webp" data-lightbox="gallery1"><img src="./gallery-hisui-5.webp"></a></li>
-                    <li><a href="./gallery-hisui-6.webp" data-lightbox="gallery1"><img src="./gallery-hisui-6.webp"></a></li>
+                    <li><a href="img_poketrainer/gallery-hisui-1.webp" data-lightbox="gallery1"><img
+                                src="img_poketrainer/gallery-hisui-1.webp"></a></li>
+                    <li><a href="img_poketrainer/gallery-hisui-2.webp" data-lightbox="gallery1"><img
+                                src="img_poketrainer/gallery-hisui-2.webp"></a></li>
+                    <li><a href="img_poketrainer/gallery-hisui-3.webp" data-lightbox="gallery1"><img
+                                src="img_poketrainer/gallery-hisui-3.webp"></a></li>
+                    <li><a href="img_poketrainer/gallery-hisui-4.webp" data-lightbox="gallery1"><img
+                                src="img_poketrainer/gallery-hisui-4.webp"></a></li>
+                    <li><a href="img_poketrainer/gallery-hisui-5.webp" data-lightbox="gallery1"><img
+                                src="img_poketrainer/gallery-hisui-5.webp"></a></li>
+                    <li><a href="img_poketrainer/gallery-hisui-6.webp" data-lightbox="gallery1"><img
+                                src="img_poketrainer/gallery-hisui-6.webp"></a></li>
                 </ul>
             </div>
         </section>
         <!---------------Footer--------------->
         <section class="footer" id="footer">
-            <img class="footer-bg" src="./footer-background.webp" draggable="false">
-            <img class="footer-logo" src="./logo-white.webp" alt="白鸟 logo">
-            <a class="redbook-link-btn" href="https://www.xiaohongshu.com/user/profile/67a57668000000000a03e5e7?shareRedId=ODY5OTw1Ok02NzUyOTgwNjY0OThHOjZC&amp;apptime=1777205097&amp;share_id=45446a59381a41478aac047fc4eb57e6&amp;xsec_source=app_share&amp;xsec_token=YBa5D0_uv5yEfA_MQ0UcwC9cwyVWfalGCerOsbQ_33QX8%3D&amp;xhsshare=CopyLink" target="_blank">
-                <img class="redbook-icon" src="./redbood-icon.svg">
+            <img class="footer-bg" src="./img_poketrainer/footer-background.webp" draggable="false">
+            <img class="footer-logo" src="img_poketrainer/logo-white.webp" alt="白鸟 logo">
+            <a class="redbook-link-btn"
+                href="https://www.xiaohongshu.com/user/profile/67a57668000000000a03e5e7?shareRedId=ODY5OTw1Ok02NzUyOTgwNjY0OThHOjZC&apptime=1777205097&share_id=45446a59381a41478aac047fc4eb57e6&xsec_source=app_share&xsec_token=YBa5D0_uv5yEfA_MQ0UcwC9cwyVWfalGCerOsbQ_33QX8%3D&xhsshare=CopyLink"
+                target="_blank">
+                <img class="redbook-icon" src="img_majo/redbood-icon.svg">
                 <p class="redbook-id">@小鸟的旅行箱</p>
             </a>
             <p class="copyright">
@@ -333,11 +417,12 @@
             </p>
         </section>
     </main>
-    <script src="./jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="./lightbox.min.js"></script>
-    <script src="./viewport-scale.js"></script>
-    <script src="./frame-router.js"></script>
-    <script src="./poke.js" defer=""></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js"></script>
+    <script src="./js/viewport-scale.js"></script>
+    <script src="./js/frame-router.js"></script>
+    <script src="./js/poke.js" defer></script>
+</body>
 
-
-<div id="lightboxOverlay" class="lightboxOverlay" style="display: none;"></div><div id="lightbox" class="lightbox" style="display: none;"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="><div class="lb-nav"><a class="lb-prev" href="https://shika0228.github.io/shiratori/poketrainer.html"></a><a class="lb-next" href="https://shika0228.github.io/shiratori/poketrainer.html"></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div></body></html>
+</html>
