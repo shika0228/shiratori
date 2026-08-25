@@ -304,6 +304,7 @@ body::before {
 .nav-item {
   --rotate: 0deg;
   --nav-scale: 1;
+  --nav-shadow-offset: 5px;
   width: var(--nav-size);
   aspect-ratio: 1 / 1;
   background: rgba(255, 255, 255);
@@ -315,11 +316,13 @@ body::before {
   transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
 }
 
-.nav-item:hover {
-  --nav-scale: 0.9;
-  opacity: 0.8;
-  box-shadow: 5px 5px 0 0 #41D1ED;
-
+@media (hover: hover) and (pointer: fine) {
+  .nav-item:hover,
+  .nav-item:focus-visible {
+    --nav-scale: 0.9;
+    opacity: 0.8;
+    box-shadow: var(--nav-shadow-offset) var(--nav-shadow-offset) 0 0 #41D1ED;
+  }
 }
 
 #nav-item-1 {
@@ -354,6 +357,9 @@ body::before {
 
 .nav-item.is-active {
   background-color: #ffffff;
+  --nav-scale: 0.9;
+  opacity: 0.8;
+  box-shadow: var(--nav-shadow-offset) var(--nav-shadow-offset) 0 0 #41D1ED;
 }
 
 .stage__visual {
@@ -435,6 +441,7 @@ body::before {
 }
 
 .stage-nav-for-each-item {
+  --each-shadow-offset: 3px;
   width: clamp(42px, 3.2vw, 54px);
   aspect-ratio: 1 / 1;
   flex: 0 0 auto;
@@ -450,14 +457,19 @@ body::before {
   transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
 }
 
-.stage-nav-for-each-item:hover {
-  opacity: 0.8;
-  transform: translateY(-6px);
-  box-shadow: 3px 3px 0 0 #41D1ED;
+@media (hover: hover) and (pointer: fine) {
+  .stage-nav-for-each-item:hover,
+  .stage-nav-for-each-item:focus-visible {
+    opacity: 0.8;
+    transform: translateY(-6px);
+    box-shadow: var(--each-shadow-offset) var(--each-shadow-offset) 0 0 #41D1ED;
+  }
 }
 
 .stage-nav-for-each-item.is-active {
-  opacity: 1;
+  opacity: 0.8;
+  transform: translateY(-6px);
+  box-shadow: var(--each-shadow-offset) var(--each-shadow-offset) 0 0 #41D1ED;
 }
 
 .title-img {
@@ -670,13 +682,38 @@ html.is-large-desktop .hamburger span {
   margin: calc(6px * var(--desktop-scale)) 0;
 }
 
-html.is-large-desktop .nav-item,
+html.is-large-desktop .nav-item {
+  --nav-shadow-offset: calc(5px * var(--desktop-scale));
+}
+
 html.is-large-desktop .stage-nav-for-each-item {
-  box-shadow: calc(5px * var(--desktop-scale)) calc(5px * var(--desktop-scale)) 0 0 #41D1ED;
+  --each-shadow-offset: calc(3px * var(--desktop-scale));
 }
 
 html.is-large-desktop .visual-item-main-reflect {
   bottom: -103%;
+}
+
+/* 宽屏但高度不足时保留桌面构图，并提供可滚动的安全高度。 */
+@media screen and (min-width: 1101px) and (max-height: 819px) {
+  .stage {
+    min-height: 920px;
+  }
+
+  /* 画布加高用于滚动，但首屏构图仍以实际视口为准。 */
+  .stage__nav,
+  .stage__info {
+    top: 50svh;
+  }
+
+  .stage__visual {
+    top: max(50svh, 360px);
+  }
+
+  .stage-nav-for-each {
+    position: fixed;
+    bottom: clamp(24px, 5vh, 60px);
+  }
 }
 
 @media (max-width: 1100px) {
