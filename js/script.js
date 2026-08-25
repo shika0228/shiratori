@@ -1,22 +1,31 @@
+const openingStartedAt = performance.now();
+
 window.addEventListener("load", function () {
   if (window.self !== window.top && window.location.pathname.endsWith("/index.html")) {
     window.top.location.href = new URL("index.html", window.location.href).href;
     return;
   }
 
-  if (document.body.classList.contains("shell-opening")) {
-    setTimeout(function () {
-      document.body.classList.remove("shell-opening");
-    }, 1350);
-  }
-
   const opening = document.getElementById("opening");
 
   if (opening) {
-    // CSS动画结束后移除开屏层，避免它残留在页面上影响点击
+    const minimumOpeningDuration = 1600;
+    const remainingDuration = Math.max(0, minimumOpeningDuration - (performance.now() - openingStartedAt));
+
     setTimeout(function () {
-      opening.remove();
-    }, 2900);
+      opening.classList.add("is-complete");
+
+      setTimeout(function () {
+        document.body.classList.remove("shell-opening");
+        opening.classList.add("is-leaving");
+
+        setTimeout(function () {
+          opening.remove();
+        }, 480);
+      }, 320);
+    }, remainingDuration);
+  } else {
+    document.body.classList.remove("shell-opening");
   }
 
   const musicButton = document.getElementById("music-btn");
