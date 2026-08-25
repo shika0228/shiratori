@@ -8,12 +8,18 @@
   <link rel="shortcut icon" href="icon.ico?v=1" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kapakana:wght@300..400&family=Noto+Sans+SC:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css?v=20260825-loading">
 </head>
 <body class="site-shell shell-opening">
   <div class="opening" id="opening" aria-hidden="true">
-    <img class="opening-logo" src="img/logo.webp" alt="">
+    <div class="loading-panel">
+      <img class="loading-character" src="img_gallery/majo_8.webp" alt="">
+      <div class="loading-progress" role="progressbar" aria-label="Loading">
+        <span class="loading-progress__fill"></span>
+      </div>
+      <p class="loading-label">Loading</p>
+    </div>
   </div>
 
   <div class="site-home is-active" id="home-view" data-page="home.html">
