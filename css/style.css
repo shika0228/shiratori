@@ -308,124 +308,127 @@ body.shell-poketrainer .music-btn-img{
 }
 
 /* ================================
-   Opening Logo Animation
+   Loading Screen
 ================================ */
 .opening {
   position: fixed;
   inset: 0;
   z-index: 99999;
   width: 100%;
-  height: 100vh;
+  height: 100svh;
   overflow: hidden;
   pointer-events: none;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:
-    radial-gradient(ellipse at 50% 43%, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0.2) 42%, rgba(255, 255, 255, 0) 72%),
-    linear-gradient(180deg, rgba(245, 253, 255, 0.6), rgba(228, 244, 250, 0.42));
-  backdrop-filter:blur(3px);
-  -webkit-backdrop-filter:blur(3px);
-  animation: openingLogoLayerOut 1.18s cubic-bezier(0.16, 1, 0.3, 1) 1.62s forwards;
+  display: grid;
+  place-items: center;
+  background: #212121 url('../img_character/background.svg') center / cover no-repeat;
 }
 
-.opening::before,
-.opening::after {
+.opening::before {
   content:"";
   position:absolute;
   inset:0;
   pointer-events:none;
-}
-
-.opening::before {
   background:
-    radial-gradient(ellipse at 50% 48%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 38%),
-    radial-gradient(ellipse at 50% 58%, rgba(127, 225, 241, 0.12), rgba(127, 225, 241, 0) 50%);
-  opacity:0;
-  transform:translateY(18px) scale(0.96);
-  animation: openingGlowBloom 2.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    radial-gradient(ellipse at 50% 46%, rgba(45, 124, 177, 0.16), rgba(45, 124, 177, 0) 48%),
+    linear-gradient(180deg, rgba(2, 13, 24, 0.12), rgba(2, 13, 24, 0.3));
 }
 
-.opening::after {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0)),
-    radial-gradient(ellipse at 50% 42%, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0) 54%);
-  opacity:0;
-  animation: openingMistLift 2.65s ease-out forwards;
+.opening.is-leaving {
+  animation: loadingLayerOut 0.48s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.opening-logo {
+.loading-panel {
   position:relative;
   z-index:1;
-  width:clamp(150px, 18vw, 300px);
+  width: clamp(220px, 20.3vw, 292px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(-4px);
+}
+
+.loading-character {
+  width: clamp(132px, 11.5vw, 166px);
   height:auto;
   display:block;
-  opacity:0;
-  transform:translate3d(0, 8px, 0) scale(0.96);
-  animation: openingLogoFloat 2.34s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  will-change:opacity, transform;
+  animation: loadingCharacterFloat 1.8s ease-in-out infinite alternate;
+  will-change: transform;
 }
 
-@keyframes openingLogoFloat {
-  0% {
-    opacity:0;
-    transform:translate3d(0, 8px, 0) scale(0.96);
-  }
-  38% {
-    opacity:1;
-    transform:translate3d(0, 0, 0) scale(1);
-  }
-  76% {
-    opacity:1;
-    transform:translate3d(0, 0, 0) scale(1);
-  }
-  100% {
-    opacity:0;
-    transform:translate3d(0, 0, 0) scale(1.018);
-  }
+.loading-progress {
+  width: 100%;
+  height: 8px;
+  margin-top: clamp(14px, 1.4vw, 20px);
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(216, 210, 249, 0.2);
 }
 
-@keyframes openingGlowBloom {
-  0% {
-    opacity:0;
-    transform:translateY(18px) scale(0.96);
-  }
-  34% {
-    opacity:1;
-    transform:translateY(0) scale(1);
-  }
-  100% {
-    opacity:0;
-    transform:translateY(-6px) scale(1.08);
-  }
+.loading-progress__fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #D8D2F9 0%, #68C0F9 100%);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s ease-out;
+  animation: loadingProgressWarmup 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes openingMistLift {
-  0% {
-    opacity:0;
-    transform:translateY(18px);
+.opening.is-complete .loading-progress__fill {
+  animation: none;
+  transform: scaleX(1);
+}
+
+.loading-label {
+  margin-top: clamp(10px, 1vw, 14px);
+  color: #73C1F9;
+  font-family: Kapakana, cursive;
+  font-size: clamp(26px, 2.2vw, 32px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+@keyframes loadingCharacterFloat {
+  from {
+    transform: translateY(-6px);
   }
-  28% {
-    opacity:0.55;
-  }
-  100% {
-    opacity:0;
-    transform:translateY(-8px);
+
+  to {
+    transform: translateY(6px);
   }
 }
 
-@keyframes openingLogoLayerOut {
-  0% {
-    opacity:1;
-    visibility:visible;
+@keyframes loadingProgressWarmup {
+  from {
+    transform: scaleX(0);
   }
-  99% {
-    opacity:0;
-    visibility:visible;
+
+  to {
+    transform: scaleX(0.9);
   }
-  100% {
-    opacity:0;
-    visibility:hidden;
+}
+
+@keyframes loadingLayerOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-character,
+  .loading-progress__fill {
+    animation: none;
+  }
+
+  .loading-character {
+    transform: none;
+  }
+
+  .loading-progress__fill {
+    transform: scaleX(0.9);
   }
 }
 
