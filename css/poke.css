@@ -506,6 +506,18 @@ body.page-fade-in::before {
     gap: calc(12px * var(--desktop-scale));
 }
 
+.pokemon-ball-hint {
+    width: calc(296vw/14.4);
+    margin-top: 6px;
+    color: #72cff4;
+    font-size: clamp(12px, calc(15vw/14.4), 22px);
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-shadow: 0 2px 10px rgba(114, 207, 244, 0.24);
+}
+
 .ball-btn {
     display: inline-flex;
     align-items: center;
@@ -582,14 +594,7 @@ body.page-fade-in::before {
         transform: translate3d(0, 0, 0);
     }
 }
-.pokemon-ball-sign{
-    width:100%;
-    font-size:clamp(13px,calc(15vw/14.4),calc(15vw/14.4));
-    font-weight:500;
-    letter-spacing:0.5em;
-    text-align:center;
-    color:#00b9f2;
-}
+
 /*-------------Costume---------------*/
 .costume {
     position: relative;
@@ -1016,11 +1021,43 @@ body.page-fade-in::before {
 #gallery-hisui {
     margin:0 auto;
     width: 80%;
-    columns: 3;
-    /*段組みの数*/
+    columns: auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    box-sizing: border-box;
     padding: 0 36px;
     /*ギャラリー左右に余白をつける*/
 
+}
+
+#gallery-hisui li {
+    margin-bottom: 0;
+    min-width: 0;
+}
+
+#gallery-hisui .hisui-gallery-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#gallery-hisui .hisui-gallery-column:first-child {
+    flex: 1.55 1 0;
+}
+
+#gallery-hisui .hisui-gallery-column:last-child {
+    flex: 1 1 0;
+}
+
+#gallery-hisui a {
+    display: block;
+    width: 100%;
+}
+
+#gallery-hisui img {
+    width: 100%;
+    height: auto;
 }
 
 /*==========================
@@ -1529,6 +1566,12 @@ body.page-fade-in::before {
 
     .pokemon-ball-wrapper {
         gap: 16px;
+    }
+
+    .pokemon-ball-hint {
+        width: calc(296vw/6.0);
+        margin-top: 6px;
+        font-size: calc(16vw/6.0);
     }
 
     .ball-btn img {
