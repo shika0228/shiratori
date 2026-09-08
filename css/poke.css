@@ -1019,16 +1019,14 @@ body.page-fade-in::before {
 }
 
 #gallery-hisui {
-    margin:0 auto;
-    width: 80%;
-    columns: auto;
-    display: flex;
+    margin: 0 auto;
+    width: min(80%, 720px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
     align-items: flex-start;
-    gap: 20px;
     box-sizing: border-box;
     padding: 0 36px;
-    /*ギャラリー左右に余白をつける*/
-
+    /* ギャラリー左右に余白をつける */
 }
 
 #gallery-hisui li {
@@ -1037,26 +1035,21 @@ body.page-fade-in::before {
 }
 
 #gallery-hisui .hisui-gallery-column {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: 20px;
+    width: 100%;
 }
 
-#gallery-hisui .hisui-gallery-column:first-child {
-    flex: 1.55 1 0;
-}
-
-#gallery-hisui .hisui-gallery-column:last-child {
-    flex: 1 1 0;
-}
-
-#gallery-hisui a {
+#gallery-hisui .hisui-gallery-column > a {
     display: block;
     width: 100%;
 }
 
 #gallery-hisui img {
+    display: block;
     width: 100%;
+    max-width: 100%;
     height: auto;
 }
 
